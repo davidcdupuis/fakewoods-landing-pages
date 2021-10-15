@@ -1,0 +1,69 @@
+{
+	"scripts": [
+
+	],
+	"header":{
+		"root": "/welcome"
+	},
+	"footer":{
+		"root": "/welcome",
+		"logo": "",
+		""
+	},
+	"menus":[
+		{
+			"name": "landing",
+			"items": [
+				{
+					"label": "Club",
+					"description" :"Shareholder Club",
+					"href": "/club",
+					"items": [
+						{
+							"label": "Rewards",
+							"href": "/rewards",
+							"description": "Shareholder benefits and rewards"
+						},
+						{
+							"label": "Rules",
+							"href": "/rules",
+							"description": "Shareholder Club Rules"
+						}
+					]
+				},
+				{
+					"label": "News",
+					"description": "Press releases and important news articles",
+					"href": "/news"
+				},
+				{
+					"label": "Financial Profile",
+					"description": "Important financial data",
+					"href": "/profile"
+				},
+				{
+					"label": "Ressources",
+					"description": "Important ressources",
+					"href": "/ressources",
+					"items": [
+						{
+							"label": "Q&A",
+							"description": "Questions & Answers",
+							"href": "/qna"
+						},
+						{
+							"label": "Glossary",
+							"description": "Important vocabulary",
+							"href": "/glossary"
+						},
+						{
+							"label": "Calendar",
+							"description": "The main calendar",
+							"href": "/calendar"
+						}
+					]
+				}
+			]
+		}
+	]
+}
