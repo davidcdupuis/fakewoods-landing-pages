@@ -1,15 +1,15 @@
-<div class="landing page">  
+<div class="page landing">  
   <div class="container">
     <div class="title-container">
-      <% if !mobile_view? && @welcome.present? %>
-        <div class="lottie title welcome"></div>
+      <% if !mobile_view? && @consulting %>
+        <div class="lottie title consulting"></div>
       <% else %>
-        <h1>We Build Communities</h1>
+        <h1>Accessible Consulting</h1>
       <% end %>
     </div>
     <div class="text-container">
       <div class="secondary-text">
-        We’re a <a href="/who-we-are">coöperative</a> that <a href="/software">builds software</a> and <a href="/services">provides services</a> for online communities.
+        We provide consulting on user research, software choice and strategy for communities.
       </div>
       <ul class="platform-shortlist">
         <li><a href="https://discourse.org" target="_blank" title="Discourse">
@@ -30,63 +30,74 @@
         <li><a href="/software" class="more">more</a></li>
       </ul>
     </div>
-    <%= render partial: "contact_form", locals: { success_message: "Sent. We'll be in touch shortly." } %>
-  </div>
-</div>
-
-<div class="page first">
-  <div class="container">
-    <div class="scene-container">
-      <div class="lottie scene rossatto large welcomesoftware"></div>
-    </div>
-    <div class="text-container">
-      <div class="primary-text">
-        <span>We build user-friendly software</span>
-      </div>
-      <div class="secondary-text">
-        We build user-friendly open-source software for online communities. We have the largest library of <a href="/discourse">customisations for Discourse</a>, and we're building others for Wordpress, Auth0, Discord, Slack and the <a href="/software#platforms">other platforms</a> we work with.
-      </div>
-    </div>
     <div class="buttons">
-      <a href="/software" class="btn btn-primary btn-cta">Learn more</a>
+      <a href="https://calendly.com/book-pavilion" class="btn btn-primary btn-cta">
+        <span>Book a consultation</span>
+      </a>
+      <a href="#services" class="btn btn-cta scroll-and-center">Learn more</a>
     </div>
   </div>
 </div>
 
-<div class="page second">
+<div id="services" class="page first">
   <div class="container">
     <div class="scene-container">
-      <div class="lottie scene rossatto large welcomeservices"></div>
+      <div class="lottie scene large answers"></div>
     </div>
     <div class="text-container">
       <div class="primary-text">
-        <span>We provide affordable services</span>
+        <span>We'll help you find the answers</span>
       </div>
       <div class="secondary-text">
-        We provide consulting, customisation and support services for community software. <a href="/members">Our members</a> are experts in their fields, and 100% of our service fees go directly to them, which means we can provide professional services at affordable rates.
+        How do you get users to engage more? How do you attract new users? How do you make a community user-friendly? And how do you do it on a budget? We can help you find the answers.
       </div>
     </div>
     <div class="buttons">
-      <a href="/services" class="btn btn-primary btn-cta">Learn more</a>
+      <a href="https://calendly.com/book-pavilion" class="btn btn-primary btn-cta">
+        Book a consultation
+      </a>
     </div>
   </div>
 </div>
 
-<div class="page third">
+<div id="users" class="page second">
   <div class="container">
     <div class="scene-container">
-      <div class="lottie scene rossatto large welcomemembers"></div>
+      <div class="lottie scene large research"></div>
     </div>
     <div class="text-container">
       <div class="primary-text">
-        <span>We empower freelancers</span>
+        <span>Go beyond your regulars</span>
       </div>
       <div class="secondary-text">
-        We're a non-profit focused on providing reliable work, support and education for freelancers, <a href="/members">our members</a>. Our members work on engaging open source projects that directly support their livelihood, pay no membership fees, and keep every dollar they earn.
+        You hear a lot from your regulars, but they're only the tip of the iceberg. You might not know as much about everyone else. We help communities understand the diversity amongst their regulars, casuals and guests. 
       </div>
     </div>
     <div class="buttons">
-      <a href="/who-we-are" class="btn btn-primary btn-cta">Learn more</a>
+      <a href="/support" class="btn btn-cta btn-primary">
+        Book a consultation
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="choice" class="page third">
+  <div class="container">
+    <div class="scene-container">
+      <div class="lottie scene large choice"></div>
+    </div>
+    <div class="text-container">
+      <div class="primary-text">
+        <span>Make the right investment</span>
+      </div>
+      <div class="secondary-text">
+        There are many software solutions for any problem, and running a community is no exception. Knowing the criteria to apply, and how to distinguish marketing from reality, is hard. We can help.
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="https://calendly.com/book-pavilion" class="btn btn-primary btn-cta">
+        Book a consultation
+      </a>
     </div>
   </div>
 </div>
@@ -100,18 +111,20 @@
         <h1>Talk to Us</h1>
       <% end %>
     </div>
-    <%= render partial: "contact_form" %>
+    <div class="buttons">
+      <a href="https://calendly.com/book-pavilion/initial-consult" class="btn btn-primary btn-cta">Book a consultation</a>
+    </div>
   </div>
 </div>
 
-<% if @welcome.present? %>
+<% if @consulting.present? %>
   <script>
     var title = lottie.loadAnimation({
-      container: document.querySelector(".lottie.welcome"),
+      container: document.querySelector(".lottie.consulting"),
       renderer: 'svg',
       autoplay: true,
       loop: false,
-      path: "<%= @welcome.upload.url %>"
+      path: "<%= @consulting.upload.url %>"
     });
     title.setSpeed(0.2);
   </script>
@@ -120,33 +133,33 @@
 <script>
   setTimeout(() => {
     lottie.loadAnimation({
-      container: document.querySelector(".lottie.welcomesoftware"),
+      container: document.querySelector(".lottie.answers"),
       renderer: 'svg',
       autoplay: true,
       loop: true,
-      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/welcomesoftware.json"
+      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/answers.json"
     });
-  }, 50);
+  }, 30);
   
   setTimeout(() => {
     lottie.loadAnimation({
-      container: document.querySelector(".lottie.welcomeservices"),
+      container: document.querySelector(".lottie.research"),
       renderer: 'svg',
       autoplay: true,
       loop: true,
-      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/welcomeservices.json"
+      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/research.json"
     });
-  }, 100);
+  }, 60);
   
   setTimeout(() => {
     lottie.loadAnimation({
-      container: document.querySelector(".lottie.welcomemembers"),
+      container: document.querySelector(".lottie.choice"),
       renderer: 'svg',
       autoplay: true,
       loop: true,
-      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/welcomemembers.json"
+      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/choice.json"
     });
-  }, 150);
+  }, 90);
 </script>
 
 <% if @contact.present? %>
@@ -160,6 +173,6 @@
         path: "<%= @contact.upload.url %>"
       });
       contact.setSpeed(0.2);
-    }, 200);
+    }, 120);
   </script>
 <% end %>

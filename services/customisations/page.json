@@ -1,11 +1,11 @@
 {
-  "name": "Welcome",
-  "path": "welcome",
+  "name": "Customisations",
+  "path": "customisations",
   "menu": "landing",
   "theme": "Pavilion Landing Theme",
   "groups": [],
   "assets": [
-    "welcome",
+    "customisations",
     "contact"
   ]
 }

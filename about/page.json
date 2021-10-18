@@ -1,11 +1,11 @@
 {
-  "name": "Welcome",
-  "path": "welcome",
+  "name": "Who We Are",
+  "path": "who-we-are",
   "menu": "landing",
   "theme": "Pavilion Landing Theme",
   "groups": [],
   "assets": [
-    "welcome",
+    "about",
     "contact"
   ]
 }

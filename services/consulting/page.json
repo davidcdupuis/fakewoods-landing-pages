@@ -1,11 +1,11 @@
 {
-  "name": "Welcome",
-  "path": "welcome",
+  "name": "Consulting",
+  "path": "consulting",
   "menu": "landing",
   "theme": "Pavilion Landing Theme",
   "groups": [],
   "assets": [
-    "welcome",
+    "consulting",
     "contact"
   ]
 }
