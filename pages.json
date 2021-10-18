@@ -40,35 +40,7 @@
 					"label": "Profil Financier",
 					"description": "Notre profil financier",
 					"href": "/profile"
-				}
-        {
-          "label": "Services",
-          "description": "We provide development, product and support services for communities.",
-          "href": "/services",
-          "items": [
-            {
-              "label": "Consulting",
-              "href": "/consulting",
-              "description": "We provide strategic advice"
-            },
-            {
-              "label": "Customisations",
-              "href": "/customisations",
-              "description": "We customise community software"
-            },
-            {
-              "label": "Support",
-              "href": "/support",
-              "description": "We provide support and maintenance"
-            },
-            {
-              "label": "Education",
-              "href": "/education",
-              "description": "Courses for developers and community managers",
-              "coming_soon": true
-            }
-          ]
-        },
+				},
 				{
 					"label": "Ressources",
 					"description": "Nos ressources accessible grand public.",
