@@ -31,6 +31,16 @@
 						}
           ]
         },
+				{
+					"label": "Actualités",
+					"description": "Notre actualités financières",
+					"href": "/news"
+				},
+				{
+					"label": "Profil Financier",
+					"description": "Notre profil financier",
+					"href": "/profile"
+				}
         {
           "label": "Services",
           "description": "We provide development, product and support services for communities.",
