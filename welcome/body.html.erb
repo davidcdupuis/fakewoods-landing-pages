@@ -1,36 +1,16 @@
-<div class="landing page">  
+<div class="landing page">
   <div class="container">
     <div class="title-container">
       <% if !mobile_view? && @welcome.present? %>
         <div class="lottie title welcome"></div>
       <% else %>
-        <h1>We Build Communities</h1>
+        <h1>Enertime, la cleantech française qui décarbonne l’industrie mondiale</h1>
       <% end %>
     </div>
     <div class="text-container">
-      <div class="secondary-text">
-        We’re a <a href="/who-we-are">coöperative</a> that <a href="/software">builds software</a> and <a href="/services">provides services</a> for online communities.
+      <div class="secondary-text" style="color:green">
+        Notre mission : lutter contre le réchauffement climatique en développant des solutions innovantes autour de la thermodynamique pour la production d’énergie sans CO2, l’efficacité énergétique industrielle et l’économie circulaire.
       </div>
-      <ul class="platform-shortlist">
-        <li><a href="https://discourse.org" target="_blank" title="Discourse">
-          <div class="image discourse"></div>
-        </a></li>
-        <li><a href="https://wordpress.org" target="_blank" title="Wordpress">
-          <div class="image wordpress"></div>
-        </a></li>
-        <li><a href="https://auth0.com" target="_blank" title="Auth0">
-          <div class="image auth0"></div>
-        </a></li>
-        <li><a href="https://shopify.com" target="_blank" title="Shopify">
-          <div class="image shopify"></div>
-        </a></li>
-        <li><a href="https://discord.com" target="_blank" title="Discord">
-          <div class="image discord"></div>
-        </a></li>
-        <li><a href="/software" class="more">more</a></li>
-      </ul>
-    </div>
-    <%= render partial: "contact_form", locals: { success_message: "Sent. We'll be in touch shortly." } %>
   </div>
 </div>
 
@@ -41,14 +21,17 @@
     </div>
     <div class="text-container">
       <div class="primary-text">
-        <span>We build user-friendly software</span>
+        <span>Le Club des Actionnaires</span>
       </div>
       <div class="secondary-text">
-        We build user-friendly open-source software for online communities. We have the largest library of <a href="/discourse">customisations for Discourse</a>, and we're building others for Wordpress, Auth0, Discord, Slack and the <a href="/software#platforms">other platforms</a> we work with.
+        <ul>
+					<li>Un espace d'échange pour appréhender nos technologies et nos progrès.</li>
+					<li>Des privilèges actionnaires exclusifs.</li>
+				</ul>
       </div>
     </div>
     <div class="buttons">
-      <a href="/software" class="btn btn-primary btn-cta">Learn more</a>
+      <a href="/club" class="btn btn-primary btn-cta">Présentation du Club</a>
     </div>
   </div>
 </div>
@@ -60,14 +43,17 @@
     </div>
     <div class="text-container">
       <div class="primary-text">
-        <span>We provide affordable services</span>
+        <span>Nos Actualités</span>
       </div>
       <div class="secondary-text">
-        We provide consulting, customisation and support services for community software. <a href="/members">Our members</a> are experts in their fields, and 100% of our service fees go directly to them, which means we can provide professional services at affordable rates.
+        <ul>
+					<li>Suivez nos actualités</li>
+					<li>Venez donner votre avis et posez vos questions</li>
+				</ul>
       </div>
     </div>
     <div class="buttons">
-      <a href="/services" class="btn btn-primary btn-cta">Learn more</a>
+      <a href="/news" class="btn btn-primary btn-cta">Consultez nos actualités.</a>
     </div>
   </div>
 </div>
@@ -79,87 +65,38 @@
     </div>
     <div class="text-container">
       <div class="primary-text">
-        <span>We empower freelancers</span>
+        <span>Notre Profile Financier</span>
       </div>
       <div class="secondary-text">
-        We're a non-profit focused on providing reliable work, support and education for freelancers, <a href="/members">our members</a>. Our members work on engaging open source projects that directly support their livelihood, pay no membership fees, and keep every dollar they earn.
+				Un espace pour mieux appréhender notre opportunité financière, les enjeux de notre industrie et comment nous allons décarboniser le monde.
       </div>
     </div>
     <div class="buttons">
-      <a href="/who-we-are" class="btn btn-primary btn-cta">Learn more</a>
+      <a href="/profile" class="btn btn-primary btn-cta">Voir notre profil financier</a>
     </div>
   </div>
 </div>
 
-<div class="page contact">
+<div class="page">
   <div class="container">
-    <div class="title-container">
-      <% if !mobile_view? && @contact %>
-        <div class="lottie contact"></div>
-      <% else %>
-        <h1>Talk to Us</h1>
-      <% end %>
+    <div class="scene-container">
+      <div class="lottie scene rossatto large welcomemembers"></div>
     </div>
-    <%= render partial: "contact_form" %>
+    <div class="text-container">
+      <div class="primary-text">
+        <span>Ressources</span>
+      </div>
+      <div class="secondary-text">
+				Nos ressources grands publics.
+				<ul>
+					<li>Des questions et réponses fréquentes.</li>
+					<li>Notre glossaire de termes techniques.</li>
+					<li>Notre calendrier financier.</li>
+				</ul>
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="/profile" class="btn btn-primary btn-cta">Voir notre profil financier</a>
+    </div>
   </div>
 </div>
-
-<% if @welcome.present? %>
-  <script>
-    var title = lottie.loadAnimation({
-      container: document.querySelector(".lottie.welcome"),
-      renderer: 'svg',
-      autoplay: true,
-      loop: false,
-      path: "<%= @welcome.upload.url %>"
-    });
-    title.setSpeed(0.2);
-  </script>
-<% end %>
-
-<script>
-  setTimeout(() => {
-    lottie.loadAnimation({
-      container: document.querySelector(".lottie.welcomesoftware"),
-      renderer: 'svg',
-      autoplay: true,
-      loop: true,
-      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/welcomesoftware.json"
-    });
-  }, 50);
-  
-  setTimeout(() => {
-    lottie.loadAnimation({
-      container: document.querySelector(".lottie.welcomeservices"),
-      renderer: 'svg',
-      autoplay: true,
-      loop: true,
-      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/welcomeservices.json"
-    });
-  }, 100);
-  
-  setTimeout(() => {
-    lottie.loadAnimation({
-      container: document.querySelector(".lottie.welcomemembers"),
-      renderer: 'svg',
-      autoplay: true,
-      loop: true,
-      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/welcomemembers.json"
-    });
-  }, 150);
-</script>
-
-<% if @contact.present? %>
-  <script>
-    setTimeout(() => {
-      var contact = lottie.loadAnimation({
-        container: document.querySelector(".lottie.contact"),
-        renderer: 'svg',
-        autoplay: true,
-        loop: false,
-        path: "<%= @contact.upload.url %>"
-      });
-      contact.setSpeed(0.2);
-    }, 200);
-  </script>
-<% end %>

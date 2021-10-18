@@ -1,8 +1,8 @@
 {
-  "name": "Software",
-  "path": "software",
+  "name": "Team",
+  "path": "team",
   "menu": "landing",
-  "theme": "Pavilion Landing Theme",
+  "theme": "Fakewoods Landing Theme",
   "groups": [],
   "assets": [
     "software",

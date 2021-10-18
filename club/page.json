@@ -1,0 +1,11 @@
+{
+  "name": "Club",
+  "path": "club",
+  "menu": "landing",
+  "theme": "Pavilion Landing Theme",
+  "groups": [],
+  "assets": [
+    "software",
+    "contact"
+  ]
+}
