@@ -1,9 +1,0 @@
-{
-  "name": "Blog",
-  "path": "blog",
-  "menu": "landing",
-  "theme": "Pavilion Landing Theme",
-  "groups": [
-    "members"
-  ]
-}

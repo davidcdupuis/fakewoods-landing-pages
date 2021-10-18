@@ -8,14 +8,7 @@
 <div class="landing page">
   <div id="member-list" class="section anchor-buffer">
     <div class="title">
-      <h1 title="Our Members">Our Members</h1>
-      <div class="item-list-toggle">
-        <a href="#everyone" class="toggle active" data-group>Everyone</a>
-        <a href="#developers" class="toggle" data-group="developers">Developers</a>
-        <a href="#designers" class="toggle" data-group="designers">Designers</a>
-        <a href="#project-managers" class="toggle" data-group="project-managers">Project Managers</a>
-        <a href="#board" class="toggle" data-group="board">Board</a>
-      </div>
+      <h1 title="Our Members">Notre équipe</h1>
     </div>
     <ul class="item-list">
       <% user_list(group_name: 'members', order: "random() ASC").each do |user| %>
