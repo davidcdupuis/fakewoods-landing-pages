@@ -1,0 +1,22 @@
+<div class="page landing">
+  <div class="container">
+    <div class="title-container">
+      <% if !mobile_view? && @services.present? %>
+        <div class="lottie title services"></div>
+      <% else %>
+        <h1>Questions Fréquemments Posées</h1>
+      <% end %>
+    </div>
+    <div class="text-container">
+      <div class="secondary-text">
+        Voici la liste des questions qui nous sont fréquemment posés par des individus ou des institutions.
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="https://calendly.com/book-pavilion" class="btn btn-primary btn-cta">
+        <span>Book a free consult</span>
+      </a>
+      <a href="#experts" class="btn btn-cta scroll-and-center">Learn more</a>
+    </div>
+  </div>
+</div>

@@ -1,11 +1,11 @@
 {
-  "name": "Welcome",
-  "path": "welcome",
+  "name": "Ressources",
+  "path": "ressources",
   "menu": "landing",
   "theme": "Fakewoods Landing Theme",
   "groups": [],
   "assets": [
-    "welcome",
+    "services",
     "contact"
   ]
 }

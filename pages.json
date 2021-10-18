@@ -76,7 +76,29 @@
               "coming_soon": true
             }
           ]
-        }
+        },
+				{
+					"label": "Ressources",
+					"description": "Nos ressources accessible grand public.",
+					"href":"/ressources",
+					"items": [
+						{
+							"label": "FAQ",
+							"href": "/faq",
+							"description": "Questions fréquents posées."
+						},
+						{
+							"label": "Glossaire",
+							"href": "/glossary",
+							"description": "Glossaires de termes techniques."
+						},
+						{
+							"label": "Calendrier",
+							"href": "/calendar",
+							"description": "Notre calendrier financier"
+						}
+					]
+				}
       ]
     }
   ]
