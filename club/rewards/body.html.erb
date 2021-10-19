@@ -1,28 +1,72 @@
-<div class="product page landing">
+<div class="landing page software">
   <div class="container">
-    <div class="main-title">
-      <a class="product-link" href="https://discourse.org" title="Discourse.org">
-        <div class="image-container">
-          <div class="image discourse-large"></div>
-        </div>
-      </a>
+    <div class="title-container">
+      <h1>Les Privilèges des Actionnaires</h1>
     </div>
-    <div class="main-description">
-      <p>Discourse is the market-leading discussion platform, and Pavilion's spiritual home. 100% open source, highly regarded in the industry and used by some of best communities on the internet. We have over 30 open source Discourse plugins and themes you can use for free in your own Discourse community, many of which are used by hundreds of Discourse communities across the world.</p>
-    </div>
-    <div id="plugins" class="section anchor-buffer">
-      <div class="title">
-        <a href="#plugins" title="Pavilion's Discourse Plugins">Plugins</a>
+		<div class="text-container">
+      <div class="secondary-text" style="color:green; text-align:center;">
+        C'est autant un privilège pour nous de vous avoir en tant qu'actionnaires que pour vous d'être actionnaire chez nous.
       </div>
-      <%= render partial: "topic_list", locals: {
-        topics: topic_list(list_opts: { category: 171, definitions_only: true, filter_categories: [171, 129] })
-      } %>
+  	</div>
+		<div class="buttons">
+      <a href="#" class="btn btn-primary btn-cta">Je Veux Rejoindre le Club</a>
     </div>
-    <div id="themes" class="section anchor-buffer themes">
-      <div class="title">
-        <a href="#themes" title="Pavilion's Discourse Themes">Themes</a>
+  </div>
+</div>
+
+<div class="page first">
+  <div class="container">
+    <!-- <div class="scene-container">
+      <div class="scene large club-scene"></div>
+    </div> -->
+    <div class="text-container">
+      <div class="primary-text">
+        <span>La Lettre aux Actionnaires</span>
       </div>
-      <%= render partial: "topic_list", locals: { topics: topic_list(list_opts: { category: 129, no_definitions: true }) } %>
+      <div class="secondary-text">
+        Une lettre numérique réservé aux actionnaires. Vous la recevez par mail tous les semestres.
+				Vous pouvez vous désabonner de la liste d'envoi et accéder à la liste des lettres dans le Club.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page second">
+  <div class="container">
+    <!-- <div class="scene-container">
+      <div class="scene large news-scene"></div>
+    </div> -->
+    <div class="text-container">
+      <div class="primary-text">
+        <span>Le Forum des Actionnaires</span>
+      </div>
+      <div class="secondary-text">
+        C'est le lieu de rassemblement de tous nos actionnaires ainsi que notre équipe des relations investisseurs.
+				C'est un lieu privilégié à la discussion et la communication et l'endroit idéal pour vous pour nous poser des questions et discuter avec les autres actionnaires de la société.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page third">
+  <div class="container">
+    <!-- <div class="scene-container">
+      <div class="scene large data-scene"></div>
+    </div> -->
+    <div class="text-container">
+			<div class="primary-text">
+        <span>Nos Offres Exclusives</span>
+      </div>
+      <div class="secondary-text">
+				<ul>
+					<li>Visite du site Enertime à Courbevoie</li>
+					<li>Rencontrez nos équipes</li>
+					<li>Petit déjeuner avec le PDG Gilles DAVID</li>
+				</ul>
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="/profile" class="btn btn-primary btn-cta">Rejoindre le Club</a>
     </div>
   </div>
 </div>
