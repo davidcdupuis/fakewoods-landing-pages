@@ -62,12 +62,7 @@
 							"description": "Notre calendrier financier"
 						}
 					]
-				},
-				{
-          "label": "L'équipe",
-          "description": "Les relations investisseurs Enertime",
-          "href": "/team"
-        }
+				}
       ]
     }
   ]
