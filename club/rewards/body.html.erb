@@ -2,7 +2,7 @@
   <div class="contents">
     <div class="primary">
       <div class="header-title">
-        <a href="<%= path local_assigns[:root] || "/" %>">
+        <a href="<%= path local_assigns[:root] || "/welcome" %>">
           <%- if local_assigns[:logo_url] || application_logo_url.present? %>
             <img src="<%= local_assigns[:logo_url] || application_logo_url %>" alt="<%= local_assigns[:title] || SiteSetting.title %>" id="site-logo">
           <%- else %>
@@ -61,7 +61,7 @@
     </div>
 		<div class="text-container">
       <div class="secondary-text" style="color:green; text-align:center;">
-        C'est autant un privilège pour nous de vous avoir en tant qu'actionnaires que pour vous d'être actionnaire chez nous.
+        C'est autant un privilège pour nous de vous avoir en tant qu'actionnaire que pour vous d'être actionnaire chez nous.
       </div>
 			<div class="buttons" style="padding:20px">
 	      <a href="#" class="btn btn-primary btn-cta">Je Veux Rejoindre le Club</a>
