@@ -1,7 +1,7 @@
 {
   "name": "Welcome",
   "path": "welcome",
-  "menu": "landing",
+	"menu": "landing",
   "theme": "Fakewoods Landing Theme",
   "groups": [],
   "assets": [

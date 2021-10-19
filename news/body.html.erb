@@ -8,14 +8,14 @@
       render_list: true
     },
     list_opts: {
-      category: 'blog',
+      category: 'financial-profile',
       no_definitions: true,
       per_page: 10,
       page: params[:page]
     },
     item_opts: {
-      excerpt_length: 30,
-      include_avatar: true,
+      # excerpt_length: 30,
+      include_avatar: false,
       profile_details: !mobile_view?,
       avatar_size: 60
     }
@@ -29,7 +29,7 @@
     <div class="fixed-icon"><%= SvgSprite.raw_svg('user-circle') %></div>
   <% end %>
   <% unless mobile_view? %>
-    <div class="fixed-label">Subscribe</div>
+    <div class="fixed-label">Souscrire</div>
   <% end %>
 </div>
 
