@@ -33,7 +33,7 @@
         <% else %>
           <%- if current_user %>
             <a href="<%= path "/"%>" target="_blank" class='btn btn-primary forum-button'>
-              Accéder au Forum
+              Accéder au Canal
             </a>
           <% else %>
             <a href="<%= path "/login"%>" target="_blank" class='btn btn-primary login-button'>
@@ -128,13 +128,13 @@
                       Créer un compte
                     </a>
                     <a href="/" target="_blank" class="btn btn-primary" style="margin:5px">
-                      Accéder au Forum
+                      Accéder au Canal
                     </a>
                 </div>
             </div>
         <% elsif not current_user and not current_user.groups.where('fkwds-sh') %>
             <div style="display:flex;flex-direction: column;">
-                <span style="width: 100%;">Il faut être un actionnaire pour accéder au forum dédié.</span>
+                <span style="width: 100%;">Il faut être un actionnaire pour accéder au canal dédié.</span>
                 <div style="display:flex;flex-direction:rows;margin:auto">
                     <a href="/login" target="_blank" class="btn btn-primary" style="margin:5px">
                       Rejoindre le Club
@@ -146,7 +146,7 @@
                 <span style="width: 100%;">Venez discuter</span>
                 <div style="display:flex;flex-direction:rows;margin:auto">
                     <a href="/login" target="_blank" class="btn btn-primary" style="margin:5px">
-                      Forum des Actionnaires
+                      Canal des Actionnaires
                     </a>
                 </div>
             </div>
