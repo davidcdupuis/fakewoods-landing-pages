@@ -33,67 +33,11 @@
         <% else %>
           <%- if current_user %>
             <a href="<%= path "/"%>" target="_blank" class='btn btn-primary forum-button'>
-              Accéder au Canal
+              Access the channels
             </a>
           <% else %>
             <a href="<%= path "/login"%>" target="_blank" class='btn btn-primary login-button'>
-              Créer un compte
-            </a>
-          <%- end %>
-        <% end %>
-      </span>
-    </div>
-  </div>
-</header>
-
-<% if mobile_view? %>
-  <%- if @menu.present? %>
-    <div class="mobile-header">
-      <%= render partial: "menu" %>
-    </div>
-  <%- end %>
-<% end %>
-
-<header class="landing-header new">
-  <div class="contents">
-    <div class="primary">
-      <div class="header-title">
-        <a href="<%= path local_assigns[:root] || "/" %>">
-          <%- if local_assigns[:logo_url] || application_logo_url.present? %>
-            <img src="<%= local_assigns[:logo_url] || application_logo_url %>" alt="<%= local_assigns[:title] || SiteSetting.title %>" id="site-logo">
-          <%- else %>
-            <h2 id='site-text-logo'><%= local_assigns[:title] || SiteSetting.title %></h2>
-          <%- end %>
-        </a>
-      </div>
-      <% unless mobile_view? %>
-        <%- if @menu.present? %>
-          <%= render partial: "menu" %>
-        <%- end %>
-      <% end %>
-    </div>
-    <% unless mobile_view? %>
-      <%- if local_assigns[:notice].present? %>
-        <a class="notice" target="_blank" href="<%= local_assigns[:notice][:href] %>">
-          <label class="highlight"><%= local_assigns[:notice][:text] %></label>
-        </a>
-      <%- end %>
-    <% end %>
-    <div class="panel">
-      <span class='header-buttons'>
-        <% if mobile_view? %>
-          <a class="mobile-toggle">
-            <span class="menu-icon"><%= SvgSprite.raw_svg('bars') %></span>
-            <span class="hide-menu-icon"><%= SvgSprite.raw_svg('times') %></span>
-          </a>
-        <% else %>
-          <%- if current_user %>
-            <a href="<%= path "/"%>" target="_blank" class='btn btn-primary forum-button'>
-              <%= I18n.t('landing_pages.go_to_forum') %>
-            </a>
-          <% else %>
-            <a href="<%= path "/login"%>" target="_blank" class='btn btn-primary login-button'>
-              <%= I18n.t('log_in') %>
+              Create an account
             </a>
           <%- end %>
         <% end %>
@@ -113,40 +57,40 @@
 <div class="landing page">
   <div class="container">
     <div class="title-container">
-      <h1>Enertime, la cleantech française qui décarbone l’industrie mondiale</h1>
+      <h1>Sharewoods, the future of Investor Relations</h1>
     </div>
     <div class="text-container">
       <div class="secondary-text" style="color:green">
-        Notre mission : lutter contre le réchauffement climatique en développant des solutions innovantes autour de la thermodynamique pour la production d’énergie sans CO2, l’efficacité énergétique industrielle et l’économie circulaire.
+        Our mission is to help investor relations implement international best practices while saving them time.
       </div>
 			<div class="buttons" style="padding:20px">
         <% if not current_user %>
             <div style="display:flex;flex-direction: column;">
-                <span style="width: 100%;">Il faut avoir un compte pour pouvoir répondre publiquement.</span>
+                <span style="width: 100%;">You need an account to answer publicly.</span>
                 <div style="display:flex;flex-direction:rows;margin:auto">
                     <a href="/login" target="_blank" class="btn btn-primary" style="margin:5px">
-                      Créer un compte
+                      Create an account
                     </a>
                     <a href="/" target="_blank" class="btn btn-primary" style="margin:5px">
-                      Accéder au Canal
+                      Access the channels
                     </a>
                 </div>
             </div>
         <% elsif not current_user and not current_user.groups.where('fkwds-sh') %>
             <div style="display:flex;flex-direction: column;">
-                <span style="width: 100%;">Il faut être un actionnaire pour accéder au canal dédié.</span>
+                <span style="width: 100%;">You need to be a shareholder to access the shareholder channel.</span>
                 <div style="display:flex;flex-direction:rows;margin:auto">
                     <a href="/login" target="_blank" class="btn btn-primary" style="margin:5px">
-                      Rejoindre le Club
+                      Join the Shareholder Channel
                     </a>
                 </div>
             </div>
         <% else %>
             <div style="display:flex;flex-direction: column;">
-                <span style="width: 100%;">Venez discuter</span>
+                <span style="width: 100%;">Come Talk</span>
                 <div style="display:flex;flex-direction:rows;margin:auto">
                     <a href="/login" target="_blank" class="btn btn-primary" style="margin:5px">
-                      Canal des Actionnaires
+                      Shareholders' channel
                     </a>
                 </div>
             </div>
@@ -163,17 +107,17 @@
     </div> -->
     <div class="text-container">
       <div class="primary-text">
-        <span>Le Club des Actionnaires</span>
+        <span>The Shareholders' Club</span>
       </div>
       <div class="secondary-text">
         <ul>
-					<li>Un espace d'échange pour appréhender nos technologies et nos progrès.</li>
-					<li>Des privilèges actionnaires exclusifs.</li>
+					<li>A place to discuss and learn about how we are changing the world.</li>
+					<li>Access exlusive shareholder rewards.</li>
 				</ul>
       </div>
     </div>
     <div class="buttons">
-      <a href="/club" class="btn btn-primary btn-cta">Présentation du Club</a>
+      <a href="/club" class="btn btn-primary btn-cta">Club Presentation</a>
     </div>
   </div>
 </div>
@@ -185,17 +129,17 @@
     </div> -->
     <div class="text-container">
       <div class="primary-text">
-        <span>Nos Actualités</span>
+        <span>Our News</span>
       </div>
       <div class="secondary-text">
         <ul>
-					<li>Suivez nos actualités</li>
-					<li>Venez donner votre avis et posez vos questions</li>
+					<li>Follow our news.</li>
+					<li>Come give your opinion and ask questions.</li>
 				</ul>
       </div>
     </div>
     <div class="buttons">
-      <a href="/news" class="btn btn-primary btn-cta">Consultez nos actualités.</a>
+      <a href="/news" class="btn btn-primary btn-cta">Check out our latest news.</a>
     </div>
   </div>
 </div>
@@ -207,7 +151,7 @@
     </div> -->
     <div class="text-container">
       <div class="primary-text">
-        <span>Notre Profile Financier</span>
+        <span>Our Financial Profile</span>
       </div>
       <div class="secondary-text">
 				Un espace pour mieux appréhender notre opportunité financière, les enjeux de notre industrie et comment nous allons décarboniser le monde.
