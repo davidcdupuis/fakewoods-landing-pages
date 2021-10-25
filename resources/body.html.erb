@@ -33,11 +33,11 @@
         <% else %>
           <%- if current_user %>
             <a href="<%= path "/"%>" target="_blank" class='btn btn-primary forum-button'>
-              Accéder au Canal
+              Access the channels
             </a>
           <% else %>
             <a href="<%= path "/login"%>" target="_blank" class='btn btn-primary login-button'>
-              Créer un compte
+              Create an account
             </a>
           <%- end %>
         <% end %>
@@ -60,12 +60,12 @@
       <% if !mobile_view? && @services.present? %>
         <div class="lottie title services"></div>
       <% else %>
-        <h1>Ressources</h1>
+        <h1>Resources</h1>
       <% end %>
     </div>
     <div class="text-container">
       <div class="secondary-text">
-        Vous trouverez ici, toutes nos ressources accessible au grand public.
+				You will find here, all of our resources that are available to the public.
       </div>
       <ul class="platform-shortlist">
         <li><a href="https://discourse.org" target="_blank" title="Discourse">

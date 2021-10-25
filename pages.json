@@ -7,7 +7,7 @@
   },
   "footer": {
     "root": "/welcome",
-    "logo": "https://app.sharewoods.io/uploads/default/original/1X/23cf96716c72e567a54d944c5376089ae6efe1b3.svg",
+    "logo": "https://demo.sharewoods.io/uploads/default/original/1X/cfb48080d8e8f7842088e41450cf596db61d3086.png",
     "left_text": "..."
   },
   "menus": [
@@ -15,51 +15,51 @@
       "name": "landing",
       "items": [
         {
-          "label": "Le Club",
-          "description": "Le club des actionnaires",
+          "label": "The Club",
+          "description": "Shareholder Club",
           "href": "/club",
           "items": [
             {
-              "label": "Privilèges",
+              "label": "Rewards",
               "href": "/rewards",
-              "description": "Les privilèges de nos actionnaires"
+              "description": "Shareholder Rewards"
             },
 						{
-							"label": "Règlement",
+							"label": "Rules",
 							"href": "/rules",
-							"description": "Le règlement du Club des actionnaires"
+							"description": "Rules of the Shareholder Club"
 						}
           ]
         },
 				{
-					"label": "Actualités",
-					"description": "Notre actualités financières",
+					"label": "News",
+					"description": "Our financial news",
 					"href": "/news"
 				},
 				{
-					"label": "Profil Financier",
+					"label": "Financial Profile",
 					"description": "Notre profil financier",
 					"href": "https://enertime.sharewoods.io/c/financial-profile/40"
 				},
 				{
-					"label": "Ressources",
-					"description": "Nos ressources accessible grand public.",
-					"href":"/ressources",
+					"label": "Resources",
+					"description": "Our public resources",
+					"href":"/resources",
 					"items": [
 						{
 							"label": "FAQ",
 							"href": "/faq",
-							"description": "Questions fréquents posées."
+							"description": "Frequently Asked Questions"
 						},
 						{
-							"label": "Glossaire",
+							"label": "Glossary",
 							"href": "/glossary",
-							"description": "Glossaires de termes techniques."
+							"description": "Glossary of technical terms"
 						},
 						{
-							"label": "Calendrier",
+							"label": "Calendar",
 							"href": "/calendar",
-							"description": "Notre calendrier financier"
+							"description": "Our financial calendar"
 						}
 					]
 				}

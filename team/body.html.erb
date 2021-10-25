@@ -40,11 +40,11 @@
         <% else %>
           <%- if current_user %>
             <a href="<%= path "/"%>" target="_blank" class='btn btn-primary forum-button'>
-              Accéder au Canal
+              Access the channels
             </a>
           <% else %>
             <a href="<%= path "/login"%>" target="_blank" class='btn btn-primary login-button'>
-              Créer un compte
+              Create an account
             </a>
           <%- end %>
         <% end %>
@@ -64,7 +64,7 @@
 <div class="landing page">
   <div id="member-list" class="section anchor-buffer">
     <div class="title">
-      <h1 title="Our Members">Notre équipe</h1>
+      <h1 title="Our Members">Our team</h1>
     </div>
     <ul class="item-list">
       <% user_list(group_name: 'members', order: "random() ASC").each do |user| %>

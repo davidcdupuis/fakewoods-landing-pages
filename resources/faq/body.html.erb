@@ -54,76 +54,34 @@
   <%- end %>
 <% end %>
 
-<div class="landing page software">
+<div class="page landing">
   <div class="container">
     <div class="title-container">
-      <h1>Shareholder Club</h1>
+      <% if !mobile_view? && @services.present? %>
+        <div class="lottie title services"></div>
+      <% else %>
+        <h1>Frequently Asked Questions</h1>
+      <% end %>
     </div>
-		<div class="text-container">
-      <div class="secondary-text" style="color:green; text-align:center;">
-				The shareholders' club is a premium space for our loyal shareholders. It is a place of sharing and communicating where you will be rewarded for your loyalty and your participation.
-      </div>
-  	</div>
-		<div class="buttons">
-      <a href="#" class="btn btn-primary btn-cta">I Want To Join the Club</a>
-    </div>
-  </div>
-</div>
-
-<div class="page first">
-  <div class="container">
-    <!-- <div class="scene-container">
-      <div class="scene large club-scene"></div>
-    </div> -->
-    <div class="text-container">
-      <div class="primary-text">
-        <span>Shareholder Rewards</span>
-      </div>
-      <div class="secondary-text">
-        <ul>
-					<li>Receive our quarterly shareholder newsletter</li>
-					<li>Access our premium shareholder channel</li>
-					<li>Access our exclusive offers</li>
-				</ul>
-      </div>
-    </div>
-    <div class="buttons">
-      <a href="/rewards" class="btn btn-primary btn-cta">See your rewards</a>
-    </div>
-  </div>
-</div>
-
-<div class="page second">
-  <div class="container">
-    <!-- <div class="scene-container">
-      <div class="scene large news-scene"></div>
-    </div> -->
-    <div class="text-container">
-      <div class="primary-text">
-        <span>Club Rules</span>
-      </div>
-      <div class="secondary-text">
-				A basic explanation of the most important rules to follow to guarantee the success of our Club.
-      </div>
-    </div>
-    <div class="buttons">
-      <a href="/rules" class="btn btn-primary btn-cta">Read The Rules</a>
-    </div>
-  </div>
-</div>
-
-<div class="page third">
-  <div class="container">
-    <!-- <div class="scene-container">
-      <div class="scene large data-scene"></div>
-    </div> -->
     <div class="text-container">
       <div class="secondary-text">
-				A lot of information is available to the public directly on our public channels, but the shareholders' channel is reserved for them alone.
+				Here is a list of frequently asked questions by individuals or instituions.
       </div>
+			<div class="secondary-text">
+				<h2>How to become Sharewoods shareholder ?</h2>
+				<p>...</p>
+			</div>
+			<div class="secondary-text">
+				<h2>When are our next events ?</h2>
+				You can view our events on our <a href="/calendar" target="_blank">Financial Calendar</a>
+			</div>
+			<div class="secondary-text">
+				<h2>How do I join an event ?</h2>
+				<p>...</p>
+			</div>
     </div>
     <div class="buttons">
-      <a href="/profile" class="btn btn-primary btn-cta">Join The Club</a>
+      <a href="#" class="btn btn-primary btn-cta">Ask a question</a>
     </div>
   </div>
 </div>
