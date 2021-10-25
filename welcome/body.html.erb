@@ -193,7 +193,11 @@
   <div class="flexbox">
     <div class="ft-company-box">
       <div class="ft-company-logo">
-				<img src="<% SiteSetting.logo_dark %>" alt="logo">
+				<%- if SiteSetting.logo_dark.present? %>
+					<img src="<%= SiteSetting.logo_dark %>" alt="logo">
+				<%- elsif SiteSetting.logo.present? %>
+					<img src="<%= SiteSetting.logo %>" alt="logo">
+				<%- end %>
       </div>
 			<div class="ft-company-social">
       </div>
