@@ -189,19 +189,43 @@
 </div>
 
 
-<div class="footer">
+<footer class="landing-footer" style="display:block;">
   <div class="flexbox">
     <div class="ft-company-box">
       <div class="ft-company-logo">
 				<%- if SiteSetting.logo_dark.present? %>
-					<img src="<%= SiteSetting.logo_dark %>" alt="logo">
+					<img src="<%= SiteSetting.logo_dark %>" alt="<%= SiteSetting.title %>" id="site-logo">
 				<%- elsif SiteSetting.logo.present? %>
-					<img src="<%= SiteSetting.logo %>" alt="logo">
+					<img src="<%= SiteSetting.logo %>" alt="<%= SiteSetting.title %>" id="site-logo">
 				<%- end %>
       </div>
 			<div class="ft-company-social">
       </div>
     </div>
+		<div class="ft-legal-box">
+			<%- if @menu.present? %>
+	      <ul class="menu">
+	        <% @menu.items.each do |item| %>
+	          <li class="primary-item">
+	            <a href="<%= item[:href] %>" class="primary-item-link">
+	              <label><%= item[:label] %></label>
+	            </a>
+	            <%- if item[:items] %>
+	              <ul class="secondary-items">
+	                <% item[:items].each do |item| %>
+	                  <li class="item <%= 'coming-soon' if item[:coming_soon] %>">
+	                    <a href="<%= item[:href] unless item[:coming_soon] %>" class="<%= item[:label].parameterize %>">
+	                      <%= item[:label] %>
+	                    </a>
+	                  </li>
+	                <% end %>
+	              </ul>
+	            <%- end %>
+	          </li>
+	        <% end %>
+	      </ul>
+	    <%- end %>
+		</div>
     <div class="ft-legal-box">
       <div class="legal-links">
       </div>
@@ -212,4 +236,4 @@
 			</div>
 		</div>
   </div>
-</div>
+</footer>
