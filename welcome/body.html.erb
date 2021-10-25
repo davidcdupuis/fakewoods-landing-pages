@@ -187,3 +187,31 @@
     </div>
   </div>
 </div>
+
+
+<div class="footer">
+  <div class="flexbox">
+    <div class="ft-company-box">
+      <div class="ft-company-logo">
+				<img src="<% SiteSettings.logo_dark %>" alt="logo">
+      </div>
+			<div class="ft-company-social">
+        <%- each socialLinks as |link| %>
+          <a class="social-link <% link.className %>" title="<% link.title %>" target="<% link.target %>" href="<% link.href %>"><% d-icon link.icon %></a>
+        <%- each%>
+      </div>
+    </div>
+    <div class="ft-legal-box">
+      <div class="legal-links">
+        <%- each smallLinks as |link| %>
+          <a class="small-link <% link.className %>" title="<% link.title %>" target="<% link.target %>" href="<% link.href %>"><% link.text %></a>
+        <%- each%>
+      </div>
+    </div>
+		<div class="ft-sharewoods-box">
+			<div style="text-align:center;color:grey;width:100%;font-size:18px;margin-top:20px">
+				Powered by Sharewoods
+			</div>
+		</div>
+  </div>
+</div>
