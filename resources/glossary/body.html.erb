@@ -71,8 +71,8 @@
     <div class="contents canvas">
       <h1 title="<%= @glossary.title %>" class="title"><%= @glossary.title %></h1>
 			<section class="topic-byline">
-			  <div class="date" title="<%= @glossary.topic.updated_at %>">
-			    Updated at: <%= @glossary.topic.updated_at %>
+			  <div class="date" title="<%= short_date(@glossary.topic.updated_at) %>">
+			    Updated at: <%= short_date(@glossary.topic.updated_at) %>
 			  </div>
 			</section>
     </div>
