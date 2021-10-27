@@ -1,7 +1,7 @@
 <% if current_user %>
 	<% set_category_user('financial-profile') %>
 <% end %>
-<% get_topic_view('profile/english-glossary', opts: { include_suggested: false, include_related: false, post_number: 1 }, instance_var: "topic_view", set_page_title: true) %>
+<% get_topic_view('english-glossary', opts: { include_suggested: false, include_related: false, post_number: 1 }, instance_var: "topic_view", set_page_title: true) %>
 
 <% content_for :head do %>
   <meta name="description" content="Sharewoods Demo News Blog">
