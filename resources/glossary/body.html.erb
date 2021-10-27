@@ -71,8 +71,8 @@
     <div class="contents canvas">
       <h1 title="<%= @glossary.title %>" class="title"><%= @glossary.title %></h1>
 			<section class="topic-byline">
-			  <div class="date" title="<%= @glossary.date %>">
-			    <%= @glossary.date %>
+			  <div class="date" title="<%= @glossary.topic.updated_at %>">
+			    <%= @glossary.topic.updated_at %>
 			  </div>
 			</section>
 			<<%= render partial: 'topic_byline', locals: {
