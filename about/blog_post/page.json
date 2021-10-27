@@ -1,7 +1,0 @@
-{
-  "name": "News Post",
-  "parent": "news",
-  "menu": "landing",
-  "theme": "Fakewoods Landing Theme",
-  "groups": []
-}
