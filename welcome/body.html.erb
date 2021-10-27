@@ -135,7 +135,7 @@
         <span>Our Latest News</span>
       </div>
 			<ul class="item-list">
-			  <% @news[0..2] do |article| %>
+			  <% @news.first(3).each do |article| %>
 			    <li>
 			      <a href="<%= article.url %>" class="item">
 			        <div class="item-title">
