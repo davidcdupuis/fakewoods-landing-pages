@@ -71,8 +71,8 @@
     <div class="contents canvas">
       <h1 title="<%= @topic_view.title %>" class="title"><%= @topic_view.title %></h1>
 			<section class="topic-byline">
-			  <div class="date" title="<%= short_date(local_assigns[:topic].created_at) %>">
-			    <%= short_date(local_assigns[:topic].created_at) %>
+			  <div class="date" title="<%= @topic_view.updated_at %>">
+			    <%= @topic_view.updated_at %>
 			  </div>
 			</section>
     </div>
