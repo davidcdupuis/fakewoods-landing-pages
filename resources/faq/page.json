@@ -2,10 +2,5 @@
   "name": "FAQ",
   "path": "faq",
   "menu": "landing",
-  "theme": "Fakewoods Landing Theme",
-  "groups": [],
-  "assets": [
-    "services",
-    "contact"
-  ]
+  "theme": "Fakewoods Landing Theme"
 }

@@ -1,3 +1,15 @@
+<% if current_user %>
+	<% set_category_user('faq') %>
+<% end %>
+<% get_topic_view(params[:param], opts: { include_suggested: false, include_related: false, post_number: 1 }, instance_var: "topic_view", set_page_title: true) %>
+
+<% content_for :head do %>
+  <meta name="description" content="Sharewoods Demo News Blog">
+  <meta property="og:title" content="<%= @page_title %>" />
+  <meta property="og:description" content="<%= @topic_view.posts.first.excerpt_for_topic %>" />
+  <meta property="og:image" content="<%= @topic_view.topic.image_url %>" />
+<% end %>
+
 <header class="landing-header" style="display:block;">
   <div class="contents">
     <div class="primary">
@@ -54,29 +66,60 @@
   <%- end %>
 <% end %>
 
-<% if current_user %>
-  <% set_category_user('faq') %>
+<% if @topic_view.present? %>
+  <div class="title-container" <% unless mobile_view? %> <% end %>">
+    <div class="contents canvas">
+      <h1 title="<%= @topic_view.title %>" class="title"><%= @topic_view.title %></h1>
+      <%= render partial: 'topic_byline', locals: {
+        topic: @topic_view.topic,
+        include_link: true,
+        user_profile_opts: {
+          include_avatar: true,
+          avatar_size: 60
+        }
+      } %>
+    </div>
+  </div>
 <% end %>
 
-<div class="contents">
-  <%= topic_list(
-    opts: {
-      render_list: true
-    },
-    list_opts: {
-      category: 'faq',
-      no_definitions: true,
-      per_page: 10,
-      page: params[:page]
-    },
-    item_opts: {
-      # excerpt_length: 30,
-      include_avatar: true,
-      profile_details: !mobile_view?,
-      avatar_size: 60
-    }
-  )%>
-</div>
+<a href="/blog" class="btn btn-fixed btn-blog" title="Posts">
+  <div class="fixed-icon"><%= SvgSprite.raw_svg('stream') %></div>
+  <% unless mobile_view? %>
+    <div class="fixed-label">Posts</div>
+  <% end %>
+</a>
+
+<% if @topic_view.present? %>
+  <article class="post">
+    <div class="container">
+      <section class="post-content canvas">
+        <%= ::LandingPages::Post.html(@topic_view.posts.first).html_safe %>
+      </section>
+
+      <div class="comment-container">
+        <% if @topic_view.posts.length > 1 %>
+          <div class="comment-heading"><h4>Comments</h4></div>
+          <div class="comments canvas">
+            <% @topic_view.posts[1..-1].each do |post| %>
+              <div class="comment">
+                <div class="comment-avatar">
+                  <img width="35" height="35" class="img-avatar" src="<%= post.user.small_avatar_url %>">
+                </div>
+                <div class="comment-content">
+                  <h3 class="comment-user" title="<%= post.user.username %>"><%= post.user.username %></h3>
+                  <p><%= post.cooked.html_safe %></p>
+                </div>
+              </div>
+            <% end %>
+         </div>
+       <% end %>
+        <div class="comment-footer">
+          <a class="btn btn-primary" href="<%= @topic_view.topic.url %>">Post a reply</a>
+        </div>
+      </div>
+    </div>
+  </article>
+<% end %>
 
 <div class="btn btn-fixed btn-subscribe <% if current_user %>user<% else %>guest<% end %>" title="Subscribe">
   <% if current_user %>
@@ -146,6 +189,11 @@
 			</div>
 	    <div class="ft-legal-box">
 	      <div class="legal-links">
+					<div class="legal-links">
+            <a class="small-link privacy-policy" target="" href="#">Privacy Policy</a>
+            <a class="small-link user-agreement" target="" href="#">User Agreement</a>
+            <a class="small-link about" target="" href="#">About</a>
+        	</div>
 	      </div>
 	    </div>
 			<div class="ft-sharewoods-box">

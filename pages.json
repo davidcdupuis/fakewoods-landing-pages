@@ -63,11 +63,6 @@
 							"description": "Our financial calendar"
 						}
 					]
-				},
-				{
-					"label": "Blog",
-					"description": "Blog test",
-					"href": "/blog"
 				}
       ]
     }

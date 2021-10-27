@@ -1,0 +1,7 @@
+{
+  "name": "FAQ Post",
+  "parent": "faq",
+  "menu": "landing",
+  "theme": "Fakewoods Landing Theme",
+  "groups": []
+}
