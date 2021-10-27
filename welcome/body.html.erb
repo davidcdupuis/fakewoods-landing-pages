@@ -219,7 +219,7 @@
 		              <ul class="secondary-items">
 		                <% item[:items].each do |item| %>
 		                  <li class="item <%= 'coming-soon' if item[:coming_soon] %>">
-		                    <a href="<%= item[:href] unless item[:coming_soon] %>" class="<%= item[:label].parameterize %>">
+		                    <a href="<%= item[:href] unless item[:coming_soon] %>" class="<%= item[:label].parameterize %>" style="color:#fff">
 		                      <%= item[:label] %>
 		                    </a>
 		                  </li>
