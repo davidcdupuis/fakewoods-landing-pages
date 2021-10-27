@@ -72,17 +72,9 @@
       <h1 title="<%= @glossary.title %>" class="title"><%= @glossary.title %></h1>
 			<section class="topic-byline">
 			  <div class="date" title="<%= @glossary.topic.updated_at %>">
-			    <%= @glossary.topic.updated_at %>
+			    Updated at: <%= @glossary.topic.updated_at %>
 			  </div>
 			</section>
-			<<%= render partial: 'topic_byline', locals: {
-        topic: @glossary.topic,
-        include_link: true,
-        user_profile_opts: {
-          include_avatar: true,
-          avatar_size: 60
-        }
-      } %>>
     </div>
   </div>
 <% end %>
