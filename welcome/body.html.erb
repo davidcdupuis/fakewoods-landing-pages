@@ -134,25 +134,23 @@
       <div class="primary-text">
         <span>Our Latest News</span>
       </div>
-			<div style="display:flex">
-				<ul class="item-list">
-				  <% @news.first(3).each do |article| %>
-				    <li style="display: flex; margin:10px">
-				      <a href="<%= article.url %>" class="item" target="_blank">
-				        <div class="item-title">
-									<%= article.created_at %><br>
-				          <%= emoji_codes_to_img(article.fancy_title) %>
-				        </div>
-				        <% if article.image_url.present? %>
-				          <div class="item-image">
-				            <img src="<%= article.image_url %>" />
-				          </div>
-				        <% end %>
-				      </a>
-				    </li>
-				  <% end %>
-				</ul>
-			</div>
+			<ul class="item-list" style="display:flex;flex-direction:row;">
+			  <% @news.first(3).each do |article| %>
+			    <li style="display: flex; margin:10px">
+			      <a href="<%= article.url %>" class="item" target="_blank">
+			        <div class="item-title">
+								<%= article.created_at %><br>
+			          <%= emoji_codes_to_img(article.fancy_title) %>
+			        </div>
+			        <% if article.image_url.present? %>
+			          <div class="item-image">
+			            <img src="<%= article.image_url %>" />
+			          </div>
+			        <% end %>
+			      </a>
+			    </li>
+			  <% end %>
+			</ul>
       <div class="secondary-text">
         <ul>
 					<li>Follow our news.</li>
