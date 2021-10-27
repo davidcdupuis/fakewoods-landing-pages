@@ -170,62 +170,57 @@
   </div>
 </div>
 
-<% if @services.present? %>
-  <script>
-    var title = lottie.loadAnimation({
-      container: document.querySelector(".lottie.services"),
-      renderer: 'svg',
-      autoplay: true,
-      loop: false,
-      path: "<%= @services.upload.url %>"
-    });
-    title.setSpeed(0.2);
-  </script>
-<% end %>
-
-<script>
-  setTimeout(() => {
-    lottie.loadAnimation({
-      container: document.querySelector(".lottie.experts"),
-      renderer: 'svg',
-      autoplay: true,
-      loop: true,
-      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/experts.json"
-    });
-  }, 30);
-
-  setTimeout(() => {
-    lottie.loadAnimation({
-      container: document.querySelector(".lottie.affordable"),
-      renderer: 'svg',
-      autoplay: true,
-      loop: true,
-      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/affordable.json"
-    });
-  }, 60);
-
-  setTimeout(() => {
-    lottie.loadAnimation({
-      container: document.querySelector(".lottie.friends"),
-      renderer: 'svg',
-      autoplay: true,
-      loop: true,
-      path: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/lottie/friends.json"
-    });
-  }, 90);
-</script>
-
-<% if @contact.present? %>
-  <script>
-    setTimeout(() => {
-      var contact = lottie.loadAnimation({
-        container: document.querySelector(".lottie.contact"),
-        renderer: 'svg',
-        autoplay: true,
-        loop: false,
-        path: "<%= @contact.upload.url %>"
-      });
-      contact.setSpeed(0.2);
-    }, 120);
-  </script>
-<% end %>
+<div class="custom-footer">
+	<div>
+	  <div class="flexbox">
+	    <div class="ft-company-box">
+	      <div class="ft-company-logo">
+					<%- if SiteSetting.logo_dark.present? %>
+						<img src="<%= SiteSetting.logo_dark %>" alt="<%= SiteSetting.title %>" id="site-logo">
+					<%- elsif SiteSetting.logo.present? %>
+						<img src="<%= SiteSetting.logo %>" alt="<%= SiteSetting.title %>" id="site-logo">
+					<%- end %>
+	      </div>
+				<div class="ft-company-social">
+					<!-- <a class="social-link linkedin" title="Follow us on LinkedIn" target="_blank" href="#"><svg class="fa d-icon d-icon-fab-linkedin svg-icon svg-string" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#fab-linkedin"></use></svg></a>
+	        <a class="social-link facebook" title="Follow us on Facebook" target="_blank" href="#"><svg class="fa d-icon d-icon-fab-facebook svg-icon svg-string" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#fab-facebook"></use></svg></a>
+	        <a class="social-link twitter" title="Follow us on Twitter" target="_blank" href="#"><svg class="fa d-icon d-icon-fab-twitter svg-icon svg-string" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#fab-twitter"></use></svg></a>
+	        <a class="social-link youtube" title="Follow us on Youtube" target="_blank" href="#"><svg class="fa d-icon d-icon-fab-youtube svg-icon svg-string" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#fab-youtube"></use></svg></a> -->
+	      </div>
+	    </div>
+			<div class="ft-legal-box">
+				<%- if @menu.present? %>
+		      <ul class="menu">
+		        <% @menu.items.each do |item| %>
+		          <li class="primary-item">
+		            <a href="<%= item[:href] %>" class="primary-item-link" style="color:#fff">
+		              <label><%= item[:label] %></label>
+		            </a>
+		            <%- if item[:items] %>
+		              <ul class="secondary-items">
+		                <% item[:items].each do |item| %>
+		                  <li class="item <%= 'coming-soon' if item[:coming_soon] %>">
+		                    <a href="<%= item[:href] unless item[:coming_soon] %>" class="<%= item[:label].parameterize %>" style="color:#fff">
+		                      <%= item[:label] %>
+		                    </a>
+		                  </li>
+		                <% end %>
+		              </ul>
+		            <%- end %>
+		          </li>
+		        <% end %>
+		      </ul>
+		    <%- end %>
+			</div>
+	    <div class="ft-legal-box">
+	      <div class="legal-links">
+	      </div>
+	    </div>
+			<div class="ft-sharewoods-box">
+				<div style="text-align:center;color:grey;width:100%;font-size:18px;margin-top:20px">
+					Powered by Sharewoods
+				</div>
+			</div>
+	  </div>
+	</div>
+</div>
