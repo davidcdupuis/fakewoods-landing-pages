@@ -55,7 +55,7 @@
 <% end %>
 
 <% if current_user %>
-  <% set_category_user('financial-profile') %>
+  <% set_category_user('news') %>
 <% end %>
 
 <div class="contents">
@@ -64,7 +64,7 @@
       render_list: true
     },
     list_opts: {
-      category: 'financial-profile',
+      category: 'news',
       no_definitions: true,
       per_page: 10,
       page: params[:page]

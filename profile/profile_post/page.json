@@ -1,0 +1,7 @@
+{
+  "name": "Financial Profile Post",
+  "parent": "profile",
+  "menu": "landing",
+  "theme": "Fakewoods Landing Theme",
+  "groups": []
+}
