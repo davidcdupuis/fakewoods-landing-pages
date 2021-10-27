@@ -1,18 +1,70 @@
-<% if current_user %><% set_category_user('financial-profile') %><% end %>
+<% if current_user %>
+	<% set_category_user('financial-profile') %>
+<% end %>
 <% get_topic_view(params[:param], opts: { include_suggested: false, include_related: false, post_number: 1 }, instance_var: "topic_view", set_page_title: true) %>
 
 <% content_for :head do %>
-  <meta name="description" content="Pavilion's example blog for our Blog Landing Pages">
+  <meta name="description" content="Sharewoods Demo News Blog">
   <meta property="og:title" content="<%= @page_title %>" />
   <meta property="og:description" content="<%= @topic_view.posts.first.excerpt_for_topic %>" />
   <meta property="og:image" content="<%= @topic_view.topic.image_url %>" />
 <% end %>
 
-<%= render partial: "header", locals: {
-  logo_url: "https://pavilion-assets.nyc3.digitaloceanspaces.com/landing/logo-blog.png",
-  title: "Try Blog",
-  root: "/blog"
-} %>
+<header class="landing-header" style="display:block;">
+  <div class="contents">
+    <div class="primary">
+      <div class="header-title">
+        <a href="<%= path local_assigns[:root] || "/welcome" %>">
+          <%- if local_assigns[:logo_url] || application_logo_url.present? %>
+            <img src="<%= local_assigns[:logo_url] || application_logo_url %>" alt="<%= local_assigns[:title] || SiteSetting.title %>" id="site-logo">
+          <%- else %>
+            <h2 id='site-text-logo'><%= local_assigns[:title] || SiteSetting.title %></h2>
+          <%- end %>
+        </a>
+      </div>
+      <% unless mobile_view? %>
+        <%- if @menu.present? %>
+          <%= render partial: "menu" %>
+        <%- end %>
+      <% end %>
+    </div>
+    <% unless mobile_view? %>
+      <%- if local_assigns[:notice].present? %>
+        <a class="notice" href="<%= local_assigns[:notice][:href] %>">
+          <label class="highlight"><%= local_assigns[:notice][:text] %></label>
+        </a>
+      <%- end %>
+    <% end %>
+    <div class="panel">
+      <span class='header-buttons'>
+        <% if mobile_view? %>
+          <a class="mobile-toggle">
+            <span class="menu-icon"><%= SvgSprite.raw_svg('bars') %></span>
+            <span class="hide-menu-icon"><%= SvgSprite.raw_svg('times') %></span>
+          </a>
+        <% else %>
+          <%- if current_user %>
+            <a href="<%= path "/"%>" target="_blank" class='btn btn-primary forum-button'>
+              Access the channels
+            </a>
+          <% else %>
+            <a href="<%= path "/login"%>" target="_blank" class='btn btn-primary login-button'>
+              Create an account
+            </a>
+          <%- end %>
+        <% end %>
+      </span>
+    </div>
+  </div>
+</header>
+
+<% if mobile_view? %>
+  <%- if @menu.present? %>
+    <div class="mobile-header">
+      <%= render partial: "menu" %>
+    </div>
+  <%- end %>
+<% end %>
 
 <% if @topic_view.present? %>
   <div class="title-container" <% unless mobile_view? %> style="background-image: url(<%= @topic_view.topic.image_url %>) <% end %>">
@@ -92,3 +144,63 @@
     })
   } %>
 <% end %>
+
+<div class="custom-footer">
+	<div>
+	  <div class="flexbox">
+	    <div class="ft-company-box">
+	      <div class="ft-company-logo">
+					<%- if SiteSetting.logo_dark.present? %>
+						<img src="<%= SiteSetting.logo_dark %>" alt="<%= SiteSetting.title %>" id="site-logo">
+					<%- elsif SiteSetting.logo.present? %>
+						<img src="<%= SiteSetting.logo %>" alt="<%= SiteSetting.title %>" id="site-logo">
+					<%- end %>
+	      </div>
+				<div class="ft-company-social">
+					<!-- <a class="social-link linkedin" title="Follow us on LinkedIn" target="_blank" href="#"><svg class="fa d-icon d-icon-fab-linkedin svg-icon svg-string" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#fab-linkedin"></use></svg></a>
+	        <a class="social-link facebook" title="Follow us on Facebook" target="_blank" href="#"><svg class="fa d-icon d-icon-fab-facebook svg-icon svg-string" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#fab-facebook"></use></svg></a>
+	        <a class="social-link twitter" title="Follow us on Twitter" target="_blank" href="#"><svg class="fa d-icon d-icon-fab-twitter svg-icon svg-string" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#fab-twitter"></use></svg></a>
+	        <a class="social-link youtube" title="Follow us on Youtube" target="_blank" href="#"><svg class="fa d-icon d-icon-fab-youtube svg-icon svg-string" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#fab-youtube"></use></svg></a> -->
+	      </div>
+	    </div>
+			<div class="ft-legal-box">
+				<%- if @menu.present? %>
+		      <ul class="menu">
+		        <% @menu.items.each do |item| %>
+		          <li class="primary-item">
+		            <a href="<%= item[:href] %>" class="primary-item-link" style="color:#fff">
+		              <label><%= item[:label] %></label>
+		            </a>
+		            <%- if item[:items] %>
+		              <ul class="secondary-items">
+		                <% item[:items].each do |item| %>
+		                  <li class="item <%= 'coming-soon' if item[:coming_soon] %>">
+		                    <a href="<%= item[:href] unless item[:coming_soon] %>" class="<%= item[:label].parameterize %>" style="color:#fff">
+		                      <%= item[:label] %>
+		                    </a>
+		                  </li>
+		                <% end %>
+		              </ul>
+		            <%- end %>
+		          </li>
+		        <% end %>
+		      </ul>
+		    <%- end %>
+			</div>
+	    <div class="ft-legal-box">
+	      <div class="legal-links">
+					<div class="legal-links">
+            <a class="small-link privacy-policy" target="" href="#">Privacy Policy</a>
+            <a class="small-link user-agreement" target="" href="#">User Agreement</a>
+            <a class="small-link about" target="" href="#">About</a>
+        	</div>
+	      </div>
+	    </div>
+			<div class="ft-sharewoods-box">
+				<div style="text-align:center;color:grey;width:100%;font-size:18px;margin-top:20px">
+					Powered by Sharewoods
+				</div>
+			</div>
+	  </div>
+	</div>
+</div>
