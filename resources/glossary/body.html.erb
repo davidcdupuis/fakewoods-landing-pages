@@ -1,13 +1,13 @@
 <% if current_user %>
 	<% set_category_user('financial-profile') %>
 <% end %>
-<% get_topic_view('english-glossary', opts: { include_suggested: false, include_related: false, post_number: 1 }, instance_var: "topic_view", set_page_title: true) %>
+<% get_topic_view('english-glossary', opts: { include_suggested: false, include_related: false, post_number: 1 }, instance_var: "glossary", set_page_title: true) %>
 
 <% content_for :head do %>
   <meta name="description" content="Sharewoods Demo Glossary">
   <meta property="og:title" content="<%= @page_title %>" />
-  <meta property="og:description" content="<%= @topic_view.posts.first.excerpt_for_topic %>" />
-  <meta property="og:image" content="<%= @topic_view.topic.image_url %>" />
+  <meta property="og:description" content="<%= @glossary.posts.first.excerpt_for_topic %>" />
+  <meta property="og:image" content="<%= @glossary.topic.image_url %>" />
 <% end %>
 
 <header class="landing-header" style="display:block;">
@@ -66,17 +66,17 @@
   <%- end %>
 <% end %>
 
-<% if @topic_view.present? %>
+<% if @glossary.present? %>
   <div class="title-container" <% unless mobile_view? %> <% end %>">
     <div class="contents canvas">
-      <h1 title="<%= @topic_view.title %>" class="title"><%= @topic_view.title %></h1>
+      <h1 title="<%= @glossary.title %>" class="title"><%= @glossary.title %></h1>
 			<section class="topic-byline">
-			  <div class="date" title="<%= @topic_view.created_at %>">
-			    <%= @topic_view.created_at %>
+			  <div class="date" title="<%= @glossary.title %>">
+			    <%= @glossary.title %>
 			  </div>
 			</section>
 			<<%= render partial: 'topic_byline', locals: {
-        topic: @topic_view.topic,
+        topic: @glossary.topic,
         include_link: true,
         user_profile_opts: {
           include_avatar: true,
