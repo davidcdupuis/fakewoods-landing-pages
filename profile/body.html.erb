@@ -58,6 +58,9 @@
   <% set_category_user('financial-profile') %>
 <% end %>
 
+<% get_topic_view('overview', opts: { include_suggested: false, include_related: false, post_number: 1 }, instance_var: "overview", set_page_title: true) %>
+<% get_topic_view('industry', opts: { include_suggested: false, include_related: false, post_number: 1 }, instance_var: "industry", set_page_title: true) %>
+
 <div class="contents">
   <%= topic_list(
     opts: {
@@ -76,6 +79,31 @@
       avatar_size: 60
     }
   )%>
+	<% if @overview.present? %>
+		<article class="topic-list-item" data-topic-id="<%= @overview.topic.id %>">
+		  <div class="contents">
+		    <div class="topic-details">
+		      <a class="topic-link" href="<%= @overview.topic.url %>">
+		        <div class="header">
+		          <h2 class="topic-title">
+		            <%= emoji_codes_to_img(@overview.topic.fancy_title) %>
+		          </h2>
+		        </div>
+		        <section class="topic-excerpt">
+		          <%= "#{@overview.topic.excerpt.split[0...local_assigns[:topic_excerpt_length]].join(' ')} …" %>
+		        </section>
+		      </a>
+		      <div class="topic-meta">
+						<section class="topic-byline">
+						  <div class="date" title="<%= short_date(@overview.topic.updated_at) %>">
+						    <%= short_date(@overview.topic.updated_at) %>
+						  </div>
+						</section>
+		      </div>
+		    </div>
+		  </div>
+		</article>
+	<% end %>
 </div>
 
 <div class="btn btn-fixed btn-subscribe <% if current_user %>user<% else %>guest<% end %>" title="Subscribe">
