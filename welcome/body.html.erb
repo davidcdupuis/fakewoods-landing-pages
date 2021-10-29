@@ -59,11 +59,15 @@
 <div class="landing page">
   <div class="container">
     <div class="title-container">
-      <h1>@welcome.title</h1>
+			<% if @welcome.present? %>
+        <h1><%= @welcome.title %></h1>
+      <% else %>
+        <h1>Title</h1>
+      <% end %>
     </div>
     <div class="text-container">
       <div class="secondary-text">
-        @welcome.statement
+        Our mission is to help investor relations save time and implement international best practices
       </div>
 			<div class="buttons" style="padding:20px">
         <% if not current_user %>
