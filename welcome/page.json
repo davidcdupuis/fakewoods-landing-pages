@@ -5,7 +5,6 @@
   "theme": "Fakewoods Landing Theme",
   "groups": [],
   "assets": [
-    "welcome",
-    "contact"
+    "welcome"
   ]
 }
