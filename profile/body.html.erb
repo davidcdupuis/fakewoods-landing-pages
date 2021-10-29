@@ -61,44 +61,74 @@
 <% get_topic_view('overview', opts: { include_suggested: false, include_related: false, post_number: 1 }, instance_var: "overview", set_page_title: true) %>
 <% get_topic_view('industry', opts: { include_suggested: false, include_related: false, post_number: 1 }, instance_var: "industry", set_page_title: true) %>
 
-<div class="contents">
-  <%= topic_list(
-    opts: {
-      render_list: true
-    },
-    list_opts: {
-      category: 'financial-profile',
-      no_definitions: true,
-      per_page: 10,
-      page: params[:page]
-    },
-    item_opts: {
-      # excerpt_length: 30,
-      include_avatar: true,
-      profile_details: !mobile_view?,
-      avatar_size: 60
-    }
-  )%>
+<div <% unless mobile_view? %> <% end %> style="padding-top:200px">
+    <% if @overview.present? %>
+        <a class="btn btn-primary" href="#overview">Overview</a>
+    <% end %>
+    <% if @industry.present? %>
+        <a class="btn btn-primary" href="#industry">Industry</a>
+    <% end %>
+</div>
+
+<div class="title-container" <% unless mobile_view? %> <% end %>>
+    <h1 style="padding-top:150px; color:white;">Financial Profile</h1>
+</div>
+
+<div class="contents" style="flex-direction:column">
 	<% if @overview.present? %>
-		<article class="topic-list-item" data-topic-id="<%= @overview.topic.id %>">
-		  <div class="contents">
+		<article id="overview" class="topic-list-item post" data-topic-id="<%= @overview.topic.id %>" style="padding-top:150px;width:90%">
+		  <div class="contents" style="border:2px solid <%= $primary %>;">
 		    <div class="topic-details">
-		      <a class="topic-link" href="<%= @overview.topic.url %>">
+		      <a class="topic-link" href="<%= @overview.topic.url %>" style="flex:1">
+		        <div class="topic-meta" style="padding-bottom:20px;border-bottom:1px solid black;">
+				<section class="topic-byline">
+				  <div class="date" title="<%= short_date(@overview.topic.updated_at) %>">
+				    Updated: <%= short_date(@overview.topic.updated_at) %>
+				  </div>
+				    <a class="link" href="<%= @overview.topic.url %>" target="_blank">
+                        <i><%= SvgSprite.raw_svg('far-comments') %></i>
+                        <span>Channel Topic</span>
+                    </a>
+				</section>
+		      </div>
 		        <div class="header">
 		          <h2 class="topic-title">
 		            <%= emoji_codes_to_img(@overview.topic.fancy_title) %>
 		          </h2>
 		        </div>
-		        <section class="topic-excerpt">
-		          <%= "#{@overview.topic.excerpt.split[0...local_assigns[:topic_excerpt_length]].join(' ')} …" %>
-		        </section>
 		      </a>
-		      <div class="topic-meta">
-						<section class="topic-byline">
-						  <div class="date" title="<%= short_date(@overview.topic.updated_at) %>">
-						    <%= short_date(@overview.topic.updated_at) %>
-						  </div>
-						</section>
+		      <div class="text-container" style="text-align:left;align-items:start;width:100%">
+		        <%= ::LandingPages::Post.html(@overview.posts.first).html_safe %>
+		      </div>
+		    </div>
+		  </div>
+		</article>
+	<% end %>
+
+	<% if @industry.present? %>
+		<article id="industry" class="topic-list-item post" data-topic-id="<%= @industry.topic.id %>" style="width:90%;padding-top:20px;">
+		  <div class="contents" style="border:2px solid <%= $primary %>;">
+		    <div class="topic-details">
+		      <a class="topic-link" href="<%= @industry.topic.url %>" style="flex:1">
+		        <div class="topic-meta" style="padding-bottom:20px;border-bottom:1px solid black;">
+							<section class="topic-byline">
+							  <div class="date" title="<%= short_date(@industry.topic.updated_at) %>">
+							    Updated: <%= short_date(@industry.topic.updated_at) %>
+							  </div>
+							    <a class="link" href="<%= @industry.topic.url %>" target="_blank">
+			                <i><%= SvgSprite.raw_svg('far-comments') %></i>
+			                <span>Channel Topic</span>
+			            </a>
+							</section>
+		      	</div>
+		        <div class="header">
+		          <h2 class="topic-title">
+		            <%= emoji_codes_to_img(@industry.topic.fancy_title) %>
+		          </h2>
+		        </div>
+		      </a>
+		      <div class="text-container" style="text-align:left;align-items:start;width:100%">
+		        <%= ::LandingPages::Post.html(@industry.posts.first).html_safe %>
 		      </div>
 		    </div>
 		  </div>

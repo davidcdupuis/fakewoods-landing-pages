@@ -78,6 +78,8 @@
   )%>
 </div>
 
+<%= render partial: "contact_form", locals: { success_message: "Sent. We'll be in touch shortly." } %>
+
 <div class="btn btn-fixed btn-subscribe <% if current_user %>user<% else %>guest<% end %>" title="Subscribe">
   <% if current_user %>
     <img class="fixed-avatar" src="<%= current_user.avatar_template_url.gsub("{size}", "65") %>">
