@@ -2,7 +2,7 @@
   <div class="contents">
     <div class="primary">
       <div class="header-title">
-        <a href="<%= path local_assigns[:root] || "/" %>">
+        <a href="<%= path local_assigns[:root] || "/welcome" %>">
           <%- if local_assigns[:logo_url] || application_logo_url.present? %>
             <img src="<%= local_assigns[:logo_url] || application_logo_url %>" alt="<%= local_assigns[:title] || SiteSetting.title %>" id="site-logo">
           <%- else %>
@@ -12,7 +12,47 @@
       </div>
       <% unless mobile_view? %>
         <%- if @menu.present? %>
-          <%= render partial: "menu" %>
+					<ul class="menu">
+						<% @menu.items.each do |item| %>
+							<li class="primary-item">
+								<a href="<%= item[:href] %>" class="primary-item-link">
+									<label><%= item[:label] %></label>
+									<%- unless mobile_view? %>
+										<%- if item[:items] %>
+											<span class="down"><%= SvgSprite.raw_svg('angle-down') %></span>
+											<span class="up"><%= SvgSprite.raw_svg('angle-up') %></span>
+										<%- end %>
+									<%- end %>
+								</a>
+								<%- if item[:items] %>
+									<div class="menu-dropdown">
+										<ul class="menu-item-list">
+											<% item[:items].each do |item| %>
+												<li class="item <%= 'coming-soon' if item[:coming_soon] %>">
+													<a href="<%= item[:href] unless item[:coming_soon] %>" class="<%= item[:label].parameterize %>">
+														<div class="content">
+															<div class="right">
+																<div class="label"><%= item[:label] %></div>
+															</div>
+															<%- if item[:items] %>
+																<ul class="item-list">
+																	<% item[:items].each do |item| %>
+																		<a href="<%= item[:href] %>" class="<%= item[:label].dasherize.downcase %>">
+																			<div class="label"><%= item[:label] %></div>
+																		</a>
+																	<% end %>
+																</ul>
+															<%- end %>
+														</div>
+													</a>
+												</li>
+											<% end %>
+										</ul>
+									</div>
+								<%- end %>
+							</li>
+						<% end %>
+					</ul>
         <%- end %>
       <% end %>
     </div>
@@ -45,7 +85,6 @@
     </div>
   </div>
 </header>
-
 <% if mobile_view? %>
   <%- if @menu.present? %>
     <div class="mobile-header">
@@ -67,88 +106,6 @@
       <div class="secondary-text">
 				You will find here, all of our resources that are available to the public.
       </div>
-      <ul class="platform-shortlist">
-        <li><a href="https://discourse.org" target="_blank" title="Discourse">
-          <div class="image discourse"></div>
-        </a></li>
-        <li><a href="https://wordpress.org" target="_blank" title="Wordpress">
-          <div class="image wordpress"></div>
-        </a></li>
-        <li><a href="https://auth0.com" target="_blank" title="Auth0">
-          <div class="image auth0"></div>
-        </a></li>
-        <li><a href="https://shopify.com" target="_blank" title="Shopify">
-          <div class="image shopify"></div>
-        </a></li>
-        <li><a href="https://discord.com" target="_blank" title="Discord">
-          <div class="image discord"></div>
-        </a></li>
-        <li><a href="/software" class="more">more</a></li>
-      </ul>
-    </div>
-    <div class="buttons">
-      <a href="https://calendly.com/book-pavilion" class="btn btn-primary btn-cta">
-        <span>Book a free consult</span>
-      </a>
-      <a href="#experts" class="btn btn-cta scroll-and-center">Learn more</a>
-    </div>
-  </div>
-</div>
-
-<div id="experts" class="page first">
-  <div class="container">
-    <div class="scene-container">
-      <div class="lottie scene shakuro medium experts"></div>
-    </div>
-    <div class="text-container">
-      <div class="primary-text">
-        <span>We specialise in communities</span>
-      </div>
-      <div class="secondary-text">
-        Our services are specifically for online communites. As well as being subject-matter experts, many of our members run their own communities. We have many years of experience building, maintaining, advising on, and running communities. We live and breathe this.
-      </div>
-    </div>
-    <div class="buttons">
-      <a href="https://calendly.com/book-pavilion/initial-consult" class="btn btn-primary btn-cta">Book a free consult</a>
-    </div>
-  </div>
-</div>
-
-<div id="affordable" class="page second">
-  <div class="container">
-    <div class="scene-container">
-      <div class="lottie scene shakuro medium affordable"></div>
-    </div>
-    <div class="text-container">
-      <div class="primary-text">
-        <span>Our rates are affordable</span>
-      </div>
-      <div class="secondary-text">
-        We're a non-profit with no overheads. Our fees only cover the wages of those who work on your project. That means we provide high quality professional services at rates affordable to communities large and small. We also build and use open source software wherever possible, further reducing the cost.
-      </div>
-    </div>
-    <div class="buttons">
-      <a href="/who-we-are" class="btn btn-cta">More about us</a>
-      <a href="/software" class="btn btn-cta">More about our software</a>
-    </div>
-  </div>
-</div>
-
-<div id="friends" class="page third">
-  <div class="container">
-    <div class="scene-container">
-      <div class="lottie scene shakuro medium friends"></div>
-    </div>
-    <div class="text-container">
-      <div class="primary-text">
-        <span>You'll be in good company</span>
-      </div>
-      <div class="secondary-text">
-        We work with a wide range of organisations, from fortune 500s, to universities, to non-profits, and small one-person local neighbourhood groups. That diversity is important to us. It adds a richness to our understanding of community that you don't get when you focus just on the top end of town.
-      </div>
-    </div>
-    <div class="buttons">
-      <a href="/who-we-are#communities" class="btn btn-cta">More about our philosophy</a>
     </div>
   </div>
 </div>
