@@ -100,8 +100,26 @@
 
 <% topic_list(list_opts: { order: 'date', category: 'faq', no_definitions: true }, opts: { instance_var: "faq"}) %>
 
-<div class="title-container" <% unless mobile_view? %> <% end %>>
-    <h1 style="padding-top:150px; color:white;">Frequently Asked Questions</h1>
+<div class="landing page">
+  <div class="container">
+    <div class="title-container">
+      <h1>Frequently Asked Questions</h1>
+    </div>
+    <div class="text-container">
+      <div class="secondary-text">
+        Important questions to which we have provided an answer.
+      </div>
+			<div class="buttons" style="padding:20px">
+        <div style="display:flex;flex-direction: column;">
+            <div style="display:flex;flex-direction:rows;margin:auto">
+                <a href="/login" target="_blank" class="btn btn-primary" style="margin:5px">
+                  Ask A Question
+                </a>
+            </div>
+        </div>
+      </div>
+  	</div>
+	</div>
 </div>
 
 <% if @faq.present? %>
