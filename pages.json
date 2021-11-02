@@ -8,59 +8,53 @@
   },
   "footer": {
     "root": "/welcome",
-    "logo": "https://demo.sharewoods.io/uploads/default/original/1X/cfb48080d8e8f7842088e41450cf596db61d3086.png",
-    "left_text": "..."
+    "logo": "https://demo.sharewoods.io/uploads/default/original/1X/cfb48080d8e8f7842088e41450cf596db61d3086.png"
   },
   "menus": [
     {
       "name": "landing",
       "items": [
+				{
+					"label": "Overview",
+					"href":"/welcome"
+				}
         {
-          "label": "The Club",
-          "description": "Shareholder Club",
+          "label": "Shareholder Club",
           "href": "/club",
           "items": [
             {
-              "label": "Rewards",
-              "href": "/rewards",
-              "description": "Shareholder Rewards"
+              "label": "Club Rewards",
+              "href": "/rewards"
             },
 						{
-							"label": "Rules",
-							"href": "/rules",
-							"description": "Rules of the Shareholder Club"
+							"label": "Club Rules",
+							"href": "/rules"
 						}
           ]
         },
 				{
 					"label": "News",
-					"description": "Our financial news",
 					"href": "/news"
 				},
 				{
 					"label": "Financial Profile",
-					"description": "Notre profil financier",
 					"href": "/profile"
 				},
 				{
 					"label": "Resources",
-					"description": "Our public resources",
 					"href":"/resources",
 					"items": [
 						{
 							"label": "FAQ",
-							"href": "/faq",
-							"description": "Frequently Asked Questions"
+							"href": "/faq"
 						},
 						{
 							"label": "Glossary",
-							"href": "/glossary",
-							"description": "Glossary of technical terms"
+							"href": "/glossary"
 						},
 						{
 							"label": "Calendar",
-							"href": "/calendar",
-							"description": "Our financial calendar"
+							"href": "/calendar"
 						}
 					]
 				}
