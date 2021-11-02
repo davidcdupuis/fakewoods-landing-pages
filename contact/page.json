@@ -1,0 +1,10 @@
+{
+  "name": "Contact",
+  "path": "contact",
+	"menu": "landing",
+  "theme": "Fakewoods Landing Theme",
+  "groups": [],
+  "assets": [
+    "welcome"
+  ]
+}

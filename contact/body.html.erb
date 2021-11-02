@@ -94,25 +94,20 @@
   <%- end %>
 <% end %>
 
-<% if current_user %>
-  <% set_category_user('faq') %>
-<% end %>
-
-<% topic_list(list_opts: { order: 'date', category: 'faq', no_definitions: true }, opts: { instance_var: "faq"}) %>
-
 <div class="landing page">
   <div class="container">
     <div class="title-container">
-      <h1>Frequently Asked Questions</h1>
+      <h1>Contact Us</h1>
     </div>
     <div class="text-container">
       <div class="secondary-text">
-        Important questions to which we have provided an answer.
+        <p>Ask a question, Suggest a Term or Ask for Help.</p>
+				<p>We will receive your email in our Investor Relations inbox.</p>
       </div>
 			<div class="buttons" style="padding:20px">
         <div style="display:flex;flex-direction: column;">
             <div style="display:flex;flex-direction:rows;margin:auto">
-                <a href="/contact" target="_blank" class="btn btn-primary" style="margin:5px">
+                <a href="/login" target="_blank" class="btn btn-primary" style="margin:5px">
                   Ask A Question
                 </a>
             </div>
@@ -122,45 +117,9 @@
 	</div>
 </div>
 
-<% if @faq.present? %>
-  <div class="contents" style="display:block; padding: 2em 0; min-height:0">
-    <% @faq.each do |question| %>
-      <button class="accordion secondary-text" style="border-radius:5px;"><%= emoji_codes_to_img(question.fancy_title) %></button>
-      <div class="panel">
-        <%= ::LandingPages::Post.html(question.posts.first).html_safe %>
-      </div>
-			<hr>
-    <% end %>
-  </div>
-<% end %>
-
 <div class="contents">
 	<%= render partial: "contact_form", locals: { success_message: "Sent. We'll be in touch shortly." } %>
 </div>
-
-<div class="btn btn-fixed btn-subscribe <% if current_user %>user<% else %>guest<% end %>" title="Subscribe">
-  <% if current_user %>
-    <img class="fixed-avatar" src="<%= current_user.avatar_template_url.gsub("{size}", "65") %>">
-  <% else %>
-    <div class="fixed-icon"><%= SvgSprite.raw_svg('user-circle') %></div>
-  <% end %>
-  <% unless mobile_view? %>
-    <div class="fixed-label">Subscribe</div>
-  <% end %>
-</div>
-
-<% if current_user && @category_user.present? %>
-  <%= render partial: 'modal', locals: {
-    title: "Subscribe",
-    class: "subscribe",
-    content: render(partial: "subscription_form", locals: {
-      category_id: @category_user.category.id,
-      subscribed: (@category_user &&
-        @category_user.notification_level >= CategoryUser.notification_levels[:watching_first_post]
-      )
-    })
-  } %>
-<% end %>
 
 <div class="custom-footer">
 	<div>
