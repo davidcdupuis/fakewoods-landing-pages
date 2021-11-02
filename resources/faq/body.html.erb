@@ -105,12 +105,13 @@
 </div>
 
 <% if @faq.present? %>
-  <div class="contents" style="display:block;">
+  <div class="contents" style="display:block; padding: 2em 0; min-height:0">
     <% @faq.each do |question| %>
-      <button class="accordion primary-text" style="align-items:start"><%= emoji_codes_to_img(question.fancy_title) %></button>
+      <button class="accordion secondary-text" style="border-radius:5px;"><%= emoji_codes_to_img(question.fancy_title) %></button>
       <div class="panel">
         <%= ::LandingPages::Post.html(question.posts.first).html_safe %>
       </div>
+			<hr>
     <% end %>
   </div>
 <% end %>
