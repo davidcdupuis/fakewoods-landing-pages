@@ -100,10 +100,14 @@
 
 <% topic_list(list_opts: { order: 'date', category: 'faq', no_definitions: true }, opts: { instance_var: "faq"}) %>
 
+<div class="title-container" <% unless mobile_view? %> <% end %>>
+    <h1 style="padding-top:150px; color:white;">Frequently Asked Questions</h1>
+</div>
+
 <% if @faq.present? %>
-  <div class="contents">
+  <div class="contents" style="display:block;">
     <% @faq.each do |question| %>
-      <button class="accordion"><%= emoji_codes_to_img(question.fancy_title) %></button>
+      <button class="accordion primary-text" style="align-items:start"><%= emoji_codes_to_img(question.fancy_title) %></button>
       <div class="panel">
         <%= ::LandingPages::Post.html(question.posts.first).html_safe %>
       </div>
