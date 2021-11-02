@@ -113,6 +113,31 @@
     <h1 style="padding-top:150px; color:white;">Financial Profile</h1>
 </div>
 
+<div class="contents">
+  <div class="tradingview-widget-container">
+	  <div id="tradingview_c8c63"></div>
+	  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView</div>
+	  <script type="text/javascript">
+	  new TradingView.widget(
+	  {
+	  "width": 980,
+	  "height": 610,
+	  "symbol": "NASDAQ:AAPL",
+	  "interval": "D",
+	  "timezone": "Etc/UTC",
+	  "theme": "light",
+	  "style": "1",
+	  "locale": "en",
+	  "toolbar_bg": "#f1f3f6",
+	  "enable_publishing": false,
+	  "allow_symbol_change": true,
+	  "container_id": "tradingview_c8c63"
+	}
+	  );
+	  </script>
+	</div>
+</div>
+
 <div class="contents" style="flex-direction:column">
 	<% if @overview.present? %>
 		<article id="overview" class="topic-list-item post" data-topic-id="<%= @overview.topic.id %>" style="padding-top:150px;width:90%">

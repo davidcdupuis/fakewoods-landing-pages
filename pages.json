@@ -1,7 +1,8 @@
 {
   "scripts": [
     "https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.5/lottie.min.js",
-		"https://demo.sharewoods.io/assets/plugins/_discourse-chart-df54c57eefe16d0c7e7cff4df6be53eb51ce68f97f7ae714e22a6fba7fc129b5.js"
+		"https://demo.sharewoods.io/assets/plugins/_discourse-chart-df54c57eefe16d0c7e7cff4df6be53eb51ce68f97f7ae714e22a6fba7fc129b5.js",
+		"https://s3.tradingview.com/tv.js"
   ],
   "header": {
     "root": "/welcome"
