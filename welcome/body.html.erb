@@ -27,8 +27,8 @@
 									<%- end %>
 								</a>
 								<%- if item[:items] %>
-									<div class="corporate-menu-dropdown">
-										<ul class="corporate-menu-item-list">
+									<div class="menu-dropdown">
+										<ul class="menu-item-list">
 											<% item[:items].each do |item| %>
 												<li class="item <%= 'coming-soon' if item[:coming_soon] %>">
 													<a href="<%= item[:href] unless item[:coming_soon] %>" class="<%= item[:label].parameterize %>">
