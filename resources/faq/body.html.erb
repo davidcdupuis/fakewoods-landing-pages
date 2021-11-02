@@ -98,25 +98,18 @@
   <% set_category_user('faq') %>
 <% end %>
 
-<div class="contents">
-  <%= topic_list(
-    opts: {
-      render_list: true
-    },
-    list_opts: {
-      category: 'faq',
-      no_definitions: true,
-      per_page: 10,
-      page: params[:page]
-    },
-    item_opts: {
-      # excerpt_length: 30,
-      include_avatar: true,
-      profile_details: !mobile_view?,
-      avatar_size: 60
-    }
-  )%>
-</div>
+<% topic_list(list_opts: { order: 'date', category: 'faq', no_definitions: true }, opts: { instance_var: "faq"}) %>
+
+<% if @faq.present? %>
+  <div class="contents">
+    <% @faq.each do |question| %>
+      <button class="accordion"><%= emoji_codes_to_img(question.fancy_title) %></button>
+      <div class="panel">
+        <%= ::LandingPages::Post.html(question.posts.first).html_safe %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 
 <div class="contents">
 	<%= render partial: "contact_form", locals: { success_message: "Sent. We'll be in touch shortly." } %>
