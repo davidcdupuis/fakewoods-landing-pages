@@ -175,7 +175,7 @@
       </div>
 			<ul class="item-list" style="display:flex;flex-direction:row;">
 			  <% @news.first(3).each do |article| %>
-			    <li style="display: flex; margin:10px; flex-basis:0; flex-grow:1; text-align:left;">
+			    <li class="latest-news-item">
 			      <a href="<%= article.url %>" class="item" target="_blank">
 							<div class="latest-news-date">
 								<%= short_date(article.created_at) %>
@@ -220,7 +220,7 @@
     </div> -->
     <div class="text-container">
       <div class="primary-text">
-        <span>Ressources</span>
+        <span>Resources</span>
       </div>
       <div class="secondary-text">
 				Our public resources.
