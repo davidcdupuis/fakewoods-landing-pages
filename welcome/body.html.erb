@@ -164,7 +164,7 @@
   </div>
 </div>
 
-<div class="page">
+<div class="page latest-news">
   <div class="container">
     <!-- <div class="scene-container">
       <div class="scene large news-scene"></div>
@@ -177,8 +177,10 @@
 			  <% @news.first(3).each do |article| %>
 			    <li style="display: flex; margin:10px">
 			      <a href="<%= article.url %>" class="item" target="_blank">
+							<div class="item-title" style="border-bottom:1px solid #0000006B">
+								<%= long_date(article.created_at) %>
+							</div>
 			        <div class="item-title">
-								<%= short_date(article.created_at) %><br>
 			          <%= emoji_codes_to_img(article.fancy_title) %>
 			        </div>
 			        <% if article.image_url.present? %>
