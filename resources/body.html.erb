@@ -85,6 +85,7 @@
     </div>
   </div>
 </header>
+
 <% if mobile_view? %>
   <%- if @menu.present? %>
     <div class="mobile-header">
@@ -93,14 +94,10 @@
   <%- end %>
 <% end %>
 
-<div class="page landing">
+<div class="landing page" style="border-bottom:0">
   <div class="container">
     <div class="title-container">
-      <% if !mobile_view? && @services.present? %>
-        <div class="lottie title services"></div>
-      <% else %>
-        <h1>Resources</h1>
-      <% end %>
+      <h1>Resources</h1>
     </div>
     <div class="text-container">
       <div class="secondary-text">
@@ -110,19 +107,59 @@
   </div>
 </div>
 
-<div class="page contact">
+<div class="page odd">
   <div class="container">
-    <div class="title-container">
-      <% if !mobile_view? && @contact %>
-        <div class="lottie contact"></div>
-      <% else %>
-        <h1>Talk to Us</h1>
-      <% end %>
+    <!-- <div class="scene-container">
+      <div class="scene large club-scene"></div>
+    </div> -->
+    <div class="text-container">
+      <div class="primary-text">
+        <span>Frequently Asked Questions</span>
+      </div>
+      <div class="secondary-text">
+        Important questions and answers.
+      </div>
     </div>
     <div class="buttons">
-      <a href="https://calendly.com/book-pavilion/initial-consult" class="btn btn-primary btn-cta">Book a free consult</a>
-      <a href="/customisations" class="btn btn-cta">More about customisations</a>
-      <a href="/support" class="btn btn-cta">More about support</a>
+      <a href="/faq" class="btn btn-primary btn-cta">Access the FAQ</a>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="container">
+    <!-- <div class="scene-container">
+      <div class="scene large club-scene"></div>
+    </div> -->
+    <div class="text-container">
+      <div class="primary-text">
+        <span>Glossary</span>
+      </div>
+      <div class="secondary-text">
+        Glossary of our important technical terms
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="/glossary" class="btn btn-primary btn-cta">Access the Glossary</a>
+    </div>
+  </div>
+</div>
+
+<div class="page odd">
+  <div class="container">
+    <!-- <div class="scene-container">
+      <div class="scene large club-scene"></div>
+    </div> -->
+    <div class="text-container">
+      <div class="primary-text">
+        <span>Financial Calendar</span>
+      </div>
+      <div class="secondary-text">
+        Our financial calendar with our past and upcoming events.
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="/calendar" class="btn btn-primary btn-cta" target="_blank">Access the Calendar</a>
     </div>
   </div>
 </div>
