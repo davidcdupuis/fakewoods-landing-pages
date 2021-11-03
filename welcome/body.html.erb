@@ -144,9 +144,11 @@
 
 <div class="page grey">
   <div class="container" style="flex-direction:row">
-    <div class="scene-container" style="display:flex; flex-grow:1">
-      <img alt="club-scene" class="club-scene">
-    </div>
+		<% unless mobile_view? %>
+	    <div class="scene-container" style="display:flex; flex-grow:1">
+	      <img alt="club-scene" class="club-scene">
+	    </div>
+		<% end %>
     <div class="text-container" style="display:flex; flex-grow:1">
       <div class="primary-text">
         <span>The Shareholders' Club</span>
@@ -207,17 +209,21 @@
 	      <a href="/profile" class="btn btn-primary btn-cta">View our financial profile</a>
 	    </div>
     </div>
-		<div class="scene-container" style="display:flex; flex-grow:1">
-      <img alt="profile-scene" class="profile-scene">
-    </div>
+		<% unless mobile_view? %>
+			<div class="scene-container" style="display:flex; flex-grow:1">
+	      <img alt="profile-scene" class="profile-scene">
+	    </div>
+		<% end %>
   </div>
 </div>
 
 <div class="page grey">
   <div class="container" style="flex-direction:row">
-		<div class="scene-container" style="display:flex; flex-grow:1">
-      <img alt="resources-scene" class="resources-scene">
-    </div>
+		<% unless mobile_view? %>
+			<div class="scene-container" style="display:flex; flex-grow:1">
+	      <img alt="resources-scene" class="resources-scene">
+	    </div>
+		<% end %>
     <div class="text-container" style="flex-grow:1">
       <div class="primary-text">
         <span>Resources</span>
