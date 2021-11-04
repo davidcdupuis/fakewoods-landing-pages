@@ -135,6 +135,14 @@
 </div> -->
 
 <div class="contents" style="flex-direction:column">
+	<div class="item-list-toggle">
+		<a href="#all" class="toggle active" data-group>All</a>
+		<a href="#en" class="toggle" data-group="developers">English</a>
+		<a href="#fr" class="toggle" data-group="designers">Français</a>
+		<a href="#overview" class="toggle" data-group="project-managers">Overview</a>
+		<a href="#industry" class="toggle" data-group="board">Industry</a>
+	</div>
+
 	<% if @overview.present? %>
 		<article id="overview" class="topic-list-item post" data-topic-id="<%= @overview.topic.id %>">
 		  <div class="contents" style="border:2px solid <%= $primary %>;">
