@@ -101,15 +101,6 @@
 <% get_topic_view('overview', opts: { include_suggested: false, include_related: false, post_number: 1 }, instance_var: "overview", set_page_title: true) %>
 <% get_topic_view('industry', opts: { include_suggested: false, include_related: false, post_number: 1 }, instance_var: "industry", set_page_title: true) %>
 
-<div <% unless mobile_view? %> <% end %> style="padding-top:200px">
-    <% if @overview.present? %>
-        <a class="btn btn-primary" href="#overview">Overview</a>
-    <% end %>
-    <% if @industry.present? %>
-        <a class="btn btn-primary" href="#industry">Industry</a>
-    <% end %>
-</div>
-
 <div class="landing page" style="border-bottom:0">
   <div class="container">
     <div class="title-container">
@@ -118,7 +109,7 @@
 	</div>
 </div>
 
-<div class="contents">
+<!-- <div class="contents">
   <div class="tradingview-widget-container">
 	  <div id="tradingview_c8c63"></div>
 	  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView</div>
@@ -141,11 +132,11 @@
 	  );
 	  </script>
 	</div>
-</div>
+</div> -->
 
 <div class="contents" style="flex-direction:column">
 	<% if @overview.present? %>
-		<article id="overview" class="topic-list-item post" data-topic-id="<%= @overview.topic.id %>" style="padding-top:150px;width:90%">
+		<article id="overview" class="topic-list-item post" data-topic-id="<%= @overview.topic.id %>">
 		  <div class="contents" style="border:2px solid <%= $primary %>;">
 		    <div class="topic-details">
 		      <a class="topic-link" href="<%= @overview.topic.url %>" style="flex:1">
@@ -175,7 +166,7 @@
 	<% end %>
 
 	<% if @industry.present? %>
-		<article id="industry" class="topic-list-item post" data-topic-id="<%= @industry.topic.id %>" style="width:90%;padding-top:20px;">
+		<article id="industry" class="topic-list-item post" data-topic-id="<%= @industry.topic.id %>" style="padding-top:20px;">
 		  <div class="contents" style="border:2px solid <%= $primary %>;">
 		    <div class="topic-details">
 		      <a class="topic-link" href="<%= @industry.topic.url %>" style="flex:1">
