@@ -145,10 +145,17 @@
 				  <div class="date" title="<%= short_date(@overview.topic.updated_at) %>">
 				    Updated: <%= short_date(@overview.topic.updated_at) %>
 				  </div>
+					<div class="tags" style="display: flex; flex-direction:row">
+				    <% @overview.topic.tags.each do |tag| %>
+		        	<div class="tag" style="display:flex;margin:5px;padding:5px; background-color:#83ef76;border-radius:5px">
+                <%= tag.name %>
+              </div>
+            <% end %>
+				  </div>
 				    <a class="link" href="<%= @overview.topic.url %>" target="_blank">
-                        <i><%= SvgSprite.raw_svg('far-comments') %></i>
-                        <span>Channel Topic</span>
-                    </a>
+              <i><%= SvgSprite.raw_svg('far-comments') %></i>
+              <span>Channel Topic</span>
+            </a>
 				</section>
 		      </div>
 		        <div class="header">
