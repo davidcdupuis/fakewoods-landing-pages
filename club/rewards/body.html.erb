@@ -187,30 +187,6 @@
 	        <a class="social-link youtube" title="Follow us on Youtube" target="_blank" href="#"><%= SvgSprite.raw_svg('fab-youtube') %></a>
 	      </div>
 	    </div>
-			<div class="ft-legal-box">
-				<%- if @menu.present? %>
-		      <ul class="menu">
-		        <% @menu.items.each do |item| %>
-		          <li class="primary-item">
-		            <a href="<%= item[:href] %>" class="primary-item-link" style="color:#fff">
-		              <label><%= item[:label] %></label>
-		            </a>
-		            <%- if item[:items] %>
-		              <ul class="secondary-items">
-		                <% item[:items].each do |item| %>
-		                  <li class="item <%= 'coming-soon' if item[:coming_soon] %>">
-		                    <a href="<%= item[:href] unless item[:coming_soon] %>" class="<%= item[:label].parameterize %>" style="color:#fff">
-		                      <%= item[:label] %>
-		                    </a>
-		                  </li>
-		                <% end %>
-		              </ul>
-		            <%- end %>
-		          </li>
-		        <% end %>
-		      </ul>
-		    <%- end %>
-			</div>
 	    <div class="ft-legal-box">
 	      <div class="legal-links">
 					<div class="legal-links">
