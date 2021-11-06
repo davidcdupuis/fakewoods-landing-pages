@@ -109,7 +109,24 @@
 	</div>
 </div>
 
-<!-- <div class="contents">
+<div class="sidebar">
+  <a class="active" href="#overview">Overview</a>
+  <a href="#industry">Industry</a>
+  <a href="#management">Management</a>
+  <a href="#key-criteria">Key Criteria</a>
+</div>
+
+
+<div class="contents" style="flex-direction:column">
+	<div class="item-list-toggle">
+		<a href="#all" class="toggle active" data-group>All</a>
+		<a href="#en" class="toggle" data-group="developers">English</a>
+		<a href="#fr" class="toggle" data-group="designers">Français</a>
+		<a href="#overview" class="toggle" data-group="project-managers">Overview</a>
+		<a href="#industry" class="toggle" data-group="board">Industry</a>
+	</div>
+
+	<!-- TradingView Widget BEGIN -->
   <div class="tradingview-widget-container">
 	  <div id="tradingview_c8c63"></div>
 	  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView</div>
@@ -132,24 +149,7 @@
 	  );
 	  </script>
 	</div>
-</div> -->
-
-<div class="sidebar">
-  <a class="active" href="#overview">Overview</a>
-  <a href="#industry">Industry</a>
-  <a href="#management">Management</a>
-  <a href="#key-criteria">Key Criteria</a>
-</div>
-
-
-<div class="contents" style="flex-direction:column">
-	<div class="item-list-toggle">
-		<a href="#all" class="toggle active" data-group>All</a>
-		<a href="#en" class="toggle" data-group="developers">English</a>
-		<a href="#fr" class="toggle" data-group="designers">Français</a>
-		<a href="#overview" class="toggle" data-group="project-managers">Overview</a>
-		<a href="#industry" class="toggle" data-group="board">Industry</a>
-	</div>
+	<!-- TradingView Widget END -->
 
 	<% if @overview.present? %>
 		<article id="overview" class="topic-list-item post" data-topic-id="<%= @overview.topic.id %>">

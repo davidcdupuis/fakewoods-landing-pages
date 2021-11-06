@@ -99,11 +99,11 @@
 <div class="landing page" style="border-bottom:0">
   <div class="container">
     <div class="title-container">
-      <h1>Sharewoods</h1>
+      <h1>Apple</h1>
     </div>
     <div class="text-container">
       <div class="secondary-text">
-        Our mission is to help investor relations save time and implement international best practices
+        Our mission is to bring the best personal computing products and support to students, educators, designers, scientists, engineers, businesspersons and consumers in over 140 countries around the world.
       </div>
 			<div class="buttons" style="padding:20px">
         <% if not current_user %>
@@ -140,6 +140,28 @@
       </div>
   	</div>
 	</div>
+	<!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">APPLE Quotes</span></a> by TradingView</div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+      {
+      "symbol": "NASDAQ:AAPL",
+      "width": 350,
+      "height": 220,
+      "locale": "en",
+      "dateRange": "12M",
+      "colorTheme": "light",
+      "trendLineColor": "rgba(41, 98, 255, 1)",
+      "underLineColor": "rgba(41, 98, 255, 0.3)",
+      "underLineBottomColor": "rgba(41, 98, 255, 0)",
+      "isTransparent": false,
+      "autosize": false,
+      "largeChartUrl": ""
+    }
+      </script>
+    </div>
+    <!-- TradingView Widget END -->
 </div>
 
 <div class="page grey">
@@ -190,6 +212,24 @@
 			  <% end %>
 			</ul>
     </div>
+		<!-- TradingView Widget BEGIN -->
+		<div class="tradingview-widget-container">
+		  <div class="tradingview-widget-container__widget"></div>
+		  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/history-timeline/" rel="noopener" target="_blank"><span class="blue-text">AAPL History</span></a> by TradingView</div>
+		  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+		  {
+		  "feedMode": "symbol",
+		  "symbol": "NASDAQ:AAPL",
+		  "colorTheme": "light",
+		  "isTransparent": false,
+		  "displayMode": "regular",
+		  "width": "480",
+		  "height": "500",
+		  "locale": "en"
+		}
+		  </script>
+		</div>
+		<!-- TradingView Widget END -->
     <div class="buttons">
       <a href="/news" class="btn btn-primary btn-cta">See Latest News</a>
     </div>
@@ -211,7 +251,24 @@
     </div>
 		<% unless mobile_view? %>
 			<div class="scene-container" style="display:flex; flex-grow:1">
-	      <img alt="profile-scene" class="profile-scene">
+				<!-- TradingView Widget BEGIN -->
+				<div class="tradingview-widget-container">
+				  <div class="tradingview-widget-container__widget"></div>
+				  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/financials-overview/" rel="noopener" target="_blank"><span class="blue-text">APPLE Fundamental Data</span></a> by TradingView</div>
+				  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-financials.js" async>
+				  {
+				  "symbol": "NASDAQ:AAPL",
+				  "colorTheme": "light",
+				  "isTransparent": false,
+				  "largeChartUrl": "",
+				  "displayMode": "regular",
+				  "width": "480",
+				  "height": "500",
+				  "locale": "en"
+				}
+				  </script>
+				</div>
+				<!-- TradingView Widget END -->
 	    </div>
 		<% end %>
   </div>
