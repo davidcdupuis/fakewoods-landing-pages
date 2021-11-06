@@ -128,14 +128,26 @@
     <% @faq.each do |question| %>
       <button class="accordion secondary-text">
 				<%= emoji_codes_to_img(question.fancy_title) %>
-				<% question.tags.each do |tag| %>
-        	<div class="tag" style="display:inline;margin:5px;padding:5px;background-color:white;border-radius:5px;color:black">
-            <%= tag.name %>
-          </div>
-        <% end %>
 			</button>
       <div class="panel">
         <%= ::LandingPages::Post.html(question.posts.first).html_safe %>
+				<hr>
+        <div style="display:flex;flex-direction:row;align-items:center">
+            <div style="display:flex;flex-grow:1;">Likes: <%= question.like_count %></div>
+            <div style="display:flex;flex-grow:1;align-items:center">
+            Tags:
+            <% question.tags.each do |tag| %>
+        	    <div class="tag" style="display:inline;margin:5px;padding:5px;background-color:white;border-radius:5px;color:black">
+                  <%= tag.name %>
+                </div>
+            <% end %>
+            </div>
+            <div style="display:flex;align-items:end">
+                <a class="link" href="<%= question.url %>" target="_blank">
+                  <div style="background-color:black;color:white;border-radius:5px;padding:3px">View Topic</div>
+                </a>
+            </div>
+        </div>
       </div>
 			<hr>
     <% end %>
