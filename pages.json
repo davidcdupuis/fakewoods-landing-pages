@@ -38,10 +38,6 @@
 					"href": "/news"
 				},
 				{
-					"label": "Financial Profile",
-					"href": "/profile"
-				},
-				{
 					"label": "Resources",
 					"href":"/resources",
 					"items": [
