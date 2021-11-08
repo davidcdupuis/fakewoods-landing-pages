@@ -135,7 +135,7 @@
 
 	  <div class="contents" style="display:block; padding: 0.5em 0; min-height:0">
 			<hr>
-			<ul clas="item-list">
+			<ul class="item-list">
 		    <% @faq.each do |question| %>
 					<li class="item <%= question.tags.where(name: ['corp-info', 'stock', 'annual-meeting', 'esg', 'sh-contact']).map{ |t| t.name.downcase.dasherize }.join(' ') %>">
 			      <button class="accordion secondary-text">
@@ -161,8 +161,8 @@
 			            </div>
 			        </div>
 			      </div>
-						<hr>
 					</li>
+					<hr>
 		    <% end %>
 			</ul>
 	  </div>
