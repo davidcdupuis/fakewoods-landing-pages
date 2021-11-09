@@ -1,6 +1,6 @@
 {
   "name": "Shareholders Channel",
-  "path": "shareholder-channel",
+  "path": "shareholders-channel",
   "menu": "landing",
   "theme": "Fakewoods Landing Theme",
   "groups": ['shareholders']
