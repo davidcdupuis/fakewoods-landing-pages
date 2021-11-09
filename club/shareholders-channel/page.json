@@ -3,6 +3,6 @@
   "path": "shareholders-channel",
   "menu": "landing",
   "theme": "Fakewoods Landing Theme",
-  "groups": ['shareholders'],
+  "groups": ["shareholders"],
 	"assets": []
 }
