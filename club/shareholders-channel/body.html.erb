@@ -1,0 +1,191 @@
+<% topic_list(list_opts: { order: 'date', category: 'shareholders', no_definitions: true }, opts: { instance_var: "shChannel"}) %>
+
+<header id="header" class="landing-header" style="display:block;">
+  <div class="contents">
+    <div class="primary">
+      <div class="header-title">
+        <a href="<%= path local_assigns[:root] || "/welcome" %>">
+          <%- if local_assigns[:logo_url] || application_logo_url.present? %>
+            <img src="<%= local_assigns[:logo_url] || application_logo_url %>" alt="<%= local_assigns[:title] || SiteSetting.title %>" id="site-logo">
+          <%- else %>
+            <h2 id='site-text-logo'><%= local_assigns[:title] || SiteSetting.title %></h2>
+          <%- end %>
+        </a>
+      </div>
+      <% unless mobile_view? %>
+        <%- if @menu.present? %>
+					<ul class="menu">
+						<% @menu.items.each do |item| %>
+							<li class="primary-item">
+								<a href="<%= item[:href] %>" class="primary-item-link">
+									<label><%= item[:label] %></label>
+									<%- unless mobile_view? %>
+										<%- if item[:items] %>
+											<span class="down"><%= SvgSprite.raw_svg('angle-down') %></span>
+											<span class="up"><%= SvgSprite.raw_svg('angle-up') %></span>
+										<%- end %>
+									<%- end %>
+								</a>
+								<%- if item[:items] %>
+									<div class="menu-dropdown">
+										<ul class="menu-item-list">
+											<% item[:items].each do |item| %>
+												<li class="item <%= 'coming-soon' if item[:coming_soon] %>">
+													<a href="<%= item[:href] unless item[:coming_soon] %>" class="<%= item[:label].parameterize %>">
+														<div class="content">
+															<div class="right">
+																<div class="label"><%= item[:label] %></div>
+															</div>
+															<%- if item[:items] %>
+																<ul class="item-list">
+																	<% item[:items].each do |item| %>
+																		<a href="<%= item[:href] %>" class="<%= item[:label].dasherize.downcase %>">
+																			<div class="label"><%= item[:label] %></div>
+																		</a>
+																	<% end %>
+																</ul>
+															<%- end %>
+														</div>
+													</a>
+												</li>
+											<% end %>
+										</ul>
+									</div>
+								<%- end %>
+							</li>
+						<% end %>
+					</ul>
+        <%- end %>
+      <% end %>
+    </div>
+    <% unless mobile_view? %>
+      <%- if local_assigns[:notice].present? %>
+        <a class="notice" href="<%= local_assigns[:notice][:href] %>">
+          <label class="highlight"><%= local_assigns[:notice][:text] %></label>
+        </a>
+      <%- end %>
+    <% end %>
+    <div class="panel">
+      <span class='header-buttons'>
+        <% if mobile_view? %>
+          <a class="mobile-toggle">
+            <span class="menu-icon"><%= SvgSprite.raw_svg('bars') %></span>
+            <span class="hide-menu-icon"><%= SvgSprite.raw_svg('times') %></span>
+          </a>
+        <% else %>
+          <%- if current_user %>
+            <a href="<%= path "/"%>" target="_blank" class='btn btn-primary forum-button'>
+              Access the channels
+            </a>
+          <% else %>
+            <a href="<%= path "/login"%>" target="_blank" class='btn btn-primary login-button'>
+              Create an account
+            </a>
+          <%- end %>
+        <% end %>
+      </span>
+    </div>
+  </div>
+</header>
+
+<% if mobile_view? %>
+  <%- if @menu.present? %>
+    <div class="mobile-header">
+      <%= render partial: "menu" %>
+    </div>
+  <%- end %>
+<% end %>
+
+<div class="landing page welcome" style="border-bottom:0">
+  <div class="container">
+    <div class="title-container">
+      <h1>Shareholders Channel</h1>
+    </div>
+    <div class="text-container">
+      <div class="secondary-text">
+        Active conversation topics.
+      </div>
+			<div class="buttons" style="padding:20px">
+        <% if not current_user and not current_user.groups.where('shareholders') %>
+            <div style="display:flex;flex-direction: column;">
+                <span style="width: 100%;">You need an account and be a shareholder to access the shareholder channel.</span>
+                <div style="display:flex;flex-direction:rows;margin:auto">
+                    <a href="/w/formulaire-actionnaire/steps/step_1" target="_blank" class="btn btn-primary" style="margin:5px">
+                      Join the Shareholder Channel
+                    </a>
+                </div>
+            </div>
+        <% else %>
+            <div style="display:flex;flex-direction: column;">
+                <span style="width: 100%;">Come Talk</span>
+                <div style="display:flex;flex-direction:rows;margin:auto">
+                    <a href="/c/shareholders" target="_blank" class="btn btn-primary" style="margin:5px">
+                      Shareholders' channel
+                    </a>
+                </div>
+            </div>
+        <% end %>
+      </div>
+  	</div>
+	</div>
+</div>
+
+<% if current_user and current_user.groups.where('shareholders') %>
+	<div class="page grey">
+	  <div class="container" style="flex-direction:row">
+			<%= topic_list(
+		    opts: {
+		      render_list: true
+		    },
+		    list_opts: {
+		      category: 'shareholders',
+		      no_definitions: true,
+		      per_page: 10,
+		      page: params[:page]
+		    },
+		    item_opts: {
+		      # excerpt_length: 30,
+		      include_avatar: true,
+		      profile_details: !mobile_view?,
+		      avatar_size: 60
+		    }
+		  )%>
+	  </div>
+	</div>
+<% end %>
+
+<div class="custom-footer">
+	<div>
+	  <div class="flexbox">
+	    <div class="ft-company-box">
+	      <div class="ft-company-logo">
+					<%- if SiteSetting.logo_dark.present? %>
+						<img src="<%= SiteSetting.logo_dark %>" alt="<%= SiteSetting.title %>" id="site-logo">
+					<%- elsif SiteSetting.logo.present? %>
+						<img src="<%= SiteSetting.logo %>" alt="<%= SiteSetting.title %>" id="site-logo">
+					<%- end %>
+	      </div>
+				<div class="ft-company-social">
+					<a class="social-link linkedin" title="Follow us on LinkedIn" target="_blank" href="#"><%= SvgSprite.raw_svg('fab-linkedin') %></a>
+	        <a class="social-link facebook" title="Follow us on Facebook" target="_blank" href="#"><%= SvgSprite.raw_svg('fab-facebook') %></a>
+	        <a class="social-link twitter" title="Follow us on Twitter" target="_blank" href="#"><%= SvgSprite.raw_svg('fab-twitter') %></a>
+	        <a class="social-link youtube" title="Follow us on Youtube" target="_blank" href="#"><%= SvgSprite.raw_svg('fab-youtube') %></a>
+	      </div>
+	    </div>
+	    <div class="ft-legal-box">
+	      <div class="legal-links">
+					<div class="legal-links">
+            <a class="small-link privacy-policy" target="" href="#">Privacy Policy</a>
+            <a class="small-link user-agreement" target="" href="#">User Agreement</a>
+            <a class="small-link about" target="" href="#">About</a>
+        	</div>
+	      </div>
+	    </div>
+			<div class="ft-sharewoods-box">
+				<div style="text-align:center;color:grey;width:100%;font-size:18px;margin-top:20px">
+					Powered by Sharewoods
+				</div>
+			</div>
+	  </div>
+	</div>
+</div>
