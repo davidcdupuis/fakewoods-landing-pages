@@ -133,7 +133,7 @@
 	    <a href="#sh-contact" class="toggle" data-group="sh-contact">Shareholder Contact</a>
 		</div>
 
-	  <div class="contents" style="display:block; padding: 0.5em 0; min-height:0">
+	  <div class="contents" style="display:block; min-height:0">
 			<ul class="item-list">
 		    <% @faq.each do |question| %>
 					<li class="item <%= question.tags.where(name: ['corp-info', 'stock', 'annual-meeting', 'esg', 'sh-contact']).map{ |t| t.name.downcase.dasherize }.join(' ') %>">
