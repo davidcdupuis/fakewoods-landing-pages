@@ -141,36 +141,36 @@
   	</div>
 	</div>
 	<!-- TradingView Widget BEGIN -->
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">APPLE Quotes</span></a> by TradingView</div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-      {
-      "symbol": "NASDAQ:AAPL",
-      "width": 350,
-      "height": 220,
-      "locale": "en",
-      "dateRange": "12M",
-      "colorTheme": "light",
-      "trendLineColor": "rgba(41, 98, 255, 1)",
-      "underLineColor": "rgba(41, 98, 255, 0.3)",
-      "underLineBottomColor": "rgba(41, 98, 255, 0)",
-      "isTransparent": false,
-      "autosize": false,
-      "largeChartUrl": ""
-    }
-      </script>
-    </div>
-    <!-- TradingView Widget END -->
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">APPLE Quotes</span></a> by TradingView</div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+    {
+    "symbol": "NASDAQ:AAPL",
+    "width": 350,
+    "height": 220,
+    "locale": "en",
+    "dateRange": "12M",
+    "colorTheme": "light",
+    "trendLineColor": "rgba(41, 98, 255, 1)",
+    "underLineColor": "rgba(41, 98, 255, 0.3)",
+    "underLineBottomColor": "rgba(41, 98, 255, 0)",
+    "isTransparent": false,
+    "autosize": false,
+    "largeChartUrl": ""
+  }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
 </div>
 
 <div class="page grey">
+	<% unless mobile_view? %>
+		<div class="scene-container" style="display:flex; flex-grow:1">
+			<img alt="club-scene" class="club-scene">
+		</div>
+	<% end %>
   <div class="container" style="flex-direction:row">
-		<% unless mobile_view? %>
-	    <div class="scene-container" style="display:flex; flex-grow:1">
-	      <img alt="club-scene" class="club-scene">
-	    </div>
-		<% end %>
     <div class="text-container" style="display:flex; flex-grow:1">
       <div class="primary-text">
         <span>The Shareholders' Club</span>
@@ -231,29 +231,29 @@
 	      <a href="/profile" class="btn btn-primary btn-cta">View our financial profile</a>
 	    </div>
     </div>
-		<% unless mobile_view? %>
-			<div class="scene-container" style="display:flex; flex-grow:1">
-				<!-- TradingView Widget BEGIN -->
-				<div class="tradingview-widget-container">
-				  <div class="tradingview-widget-container__widget"></div>
-				  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/financials-overview/" rel="noopener" target="_blank"><span class="blue-text">APPLE Fundamental Data</span></a> by TradingView</div>
-				  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-financials.js" async>
-				  {
-				  "symbol": "NASDAQ:AAPL",
-				  "colorTheme": "light",
-				  "isTransparent": false,
-				  "largeChartUrl": "",
-				  "displayMode": "regular",
-				  "width": "480",
-				  "height": "500",
-				  "locale": "en"
-				}
-				  </script>
-				</div>
-				<!-- TradingView Widget END -->
-	    </div>
-		<% end %>
   </div>
+	<% unless mobile_view? %>
+		<div class="scene-container" style="display:flex; flex-grow:1">
+			<!-- TradingView Widget BEGIN -->
+			<div class="tradingview-widget-container">
+				<div class="tradingview-widget-container__widget"></div>
+				<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/financials-overview/" rel="noopener" target="_blank"><span class="blue-text">APPLE Fundamental Data</span></a> by TradingView</div>
+				<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-financials.js" async>
+				{
+				"symbol": "NASDAQ:AAPL",
+				"colorTheme": "light",
+				"isTransparent": false,
+				"largeChartUrl": "",
+				"displayMode": "regular",
+				"width": "480",
+				"height": "500",
+				"locale": "en"
+			}
+				</script>
+			</div>
+			<!-- TradingView Widget END -->
+		</div>
+	<% end %>
 </div>
 
 <div class="custom-footer">
