@@ -5,10 +5,10 @@
 		"https://s3.tradingview.com/tv.js"
   ],
   "header": {
-    "root": "/welcome"
+    "root": "/faq"
   },
   "footer": {
-    "root": "/welcome",
+    "root": "/faq",
     "logo": "https://demo.sharewoods.io/uploads/default/original/1X/cfb48080d8e8f7842088e41450cf596db61d3086.png"
   },
   "menus": [
@@ -16,48 +16,12 @@
       "name": "landing",
       "items": [
 				{
-					"label": "Overview",
-					"href":"/welcome"
+					"label": "Q&A",
+					"href": "/faq"
 				},
-        {
-          "label": "Shareholder Club",
-          "href": "/club",
-          "items": [
-            {
-              "label": "Club Rewards",
-              "href": "/rewards"
-            },
-						{
-							"label": "Club Rules",
-							"href": "/rules"
-						},
-						{
-							"label": "Channel",
-							"href": "/shareholders-channel"
-						}
-          ]
-        },
 				{
 					"label": "News",
 					"href": "/news"
-				},
-				{
-					"label": "Resources",
-					"href":"/resources",
-					"items": [
-						{
-							"label": "FAQ",
-							"href": "/faq"
-						},
-						{
-							"label": "Glossary",
-							"href": "/glossary"
-						},
-						{
-							"label": "Calendar",
-							"href": "/calendar"
-						}
-					]
 				}
       ]
     }
